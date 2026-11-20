@@ -1,0 +1,22 @@
+# NCMF source index
+The supplied ZIP contained the same CSV as the standalone upload. One copy is included. Each email folder contains its message text and original attachments.
+
+Mon, 16 Nov 2026 11:07:28 +0100 | Gallary 2 batch
+https://mail.google.com/mail/u/?authuser=winnerbanjochannel@gmail.com#all/1a1e3d3a6193b96b
+1005121607.jpg, 1005121541.jpg, 1005121572.jpg, 1005121611.jpg
+
+Mon, 16 Nov 2026 11:16:40 +0100 | President profile
+https://mail.google.com/mail/u/?authuser=winnerbanjochannel@gmail.com#all/1a1e3dc16e427324
+1005121718.jpg
+
+Mon, 16 Nov 2026 11:18:35 +0100 | Tolulope Odebunmi profile. Head media
+https://mail.google.com/mail/u/?authuser=winnerbanjochannel@gmail.com#all/1a1e3ddd0977a1e2
+1005121770.jpg
+
+Mon, 16 Nov 2026 11:27:29 +0100 | Bukky Thomas Vice president
+https://mail.google.com/mail/u/?authuser=winnerbanjochannel@gmail.com#all/1a1e3e5fc832088e
+1005121802.jpg
+
+Tue, 17 Nov 2026 10:58:21 +0100 | Stella Marie profile
+https://mail.google.com/mail/u/?authuser=winnerbanjochannel@gmail.com#all/1a1e8f1ae20293fd
+1005129227.jpg, STELLA-MARIS NN.docx
