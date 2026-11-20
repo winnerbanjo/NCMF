@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useApp } from '../../context/AppContext';
 import { 
   Film, 
@@ -18,33 +18,68 @@ import {
 export const HomePage: React.FC = () => {
   const { setCurrentPage, events, setSelectedLeader, leaders } = useApp();
 
+  // Rotating phrases for animated hero headline
+  const rotatingPhrases = [
+    'Contemporary Nollywood',
+    'Collaborative Filmmaking',
+    'Creative Storytelling',
+    'Filmmaker Welfare'
+  ];
+  const [phraseIndex, setPhraseIndex] = useState(0);
+  const [fadeState, setFadeState] = useState<'in' | 'out'>('in');
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setFadeState('out');
+      setTimeout(() => {
+        setPhraseIndex(prev => (prev + 1) % rotatingPhrases.length);
+        setFadeState('in');
+      }, 350);
+    }, 3200);
+
+    return () => clearInterval(timer);
+  }, [rotatingPhrases.length]);
+
   // Feature the documented 2024 seminar and merit awards
   const featuredEvent = events.find(e => e.id === 'event-awards-2024') || events[0];
 
   return (
     <div className="space-y-24 sm:space-y-32 pb-24 bg-white text-slate-900">
       
-      {/* Hero Section: Editorial Light Style with Immediate Filmmaker Photography */}
+      {/* Hero Section: Editorial Light Style with Animated Hero Text & Immediate Photography */}
       <section className="relative pt-12 pb-14 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         
-        {/* Official Description Badge */}
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-slate-800 text-xs sm:text-sm font-medium mb-8">
+        {/* Official Description Badge with entrance animation */}
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-slate-800 text-xs sm:text-sm font-medium mb-8 animate-hero-badge">
           <ShieldCheck className="w-4 h-4 text-slate-700" />
           <span>A professional association of Nigerian film practitioners, established in 2015</span>
         </div>
 
-        {/* Hero Title: Solid, commanding deep black without artificial gradients */}
-        <h1 className="font-display font-extrabold text-4xl sm:text-6xl lg:text-7xl tracking-tight text-slate-950 max-w-4xl mx-auto leading-[1.08] mb-6">
-          Optimizing Potentials in Contemporary Nollywood
+        {/* Hero Title: Animated with dynamic rotating focus phrase */}
+        <h1 className="font-display font-extrabold text-4xl sm:text-6xl lg:text-7xl tracking-tight text-slate-950 max-w-4xl mx-auto leading-[1.12] mb-6 animate-hero-title">
+          <span>Optimizing Potentials in </span>
+          <span className="relative inline-block text-slate-950 mt-1 sm:mt-0">
+            <span
+              className={`inline-block transition-all duration-350 transform ${
+                fadeState === 'in'
+                  ? 'opacity-100 translate-y-0 scale-100'
+                  : 'opacity-0 -translate-y-2 scale-98'
+              }`}
+            >
+              {rotatingPhrases[phraseIndex]}
+            </span>
+            {/* Elegant editorial accent underline */}
+            <span className="block h-1 w-full bg-slate-900 rounded-full mt-1 sm:mt-2 transition-all duration-500"></span>
+          </span>
         </h1>
 
-        {/* Subtitle */}
-        <p className="max-w-2xl mx-auto text-base sm:text-lg text-slate-600 leading-relaxed font-normal mb-8">
+        {/* Subtitle with entrance animation */}
+        <p className="max-w-2xl mx-auto text-base sm:text-lg text-slate-600 leading-relaxed font-normal mb-8 animate-hero-sub">
           A professional association providing Nigerian actors, directors, screenwriters, cinematographers, and producers with a unified platform for mentorship, collaborative productions, capacity building, and industry welfare.
         </p>
 
-        {/* Primary Action Buttons */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-md mx-auto mb-12">
+        {/* Primary Action Buttons with entrance animation */}
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-md mx-auto mb-12 animate-hero-actions">
           <button
             onClick={() => setCurrentPage('membership')}
             className="w-full sm:w-auto px-8 py-3.5 rounded-full font-semibold text-sm tracking-wide text-white bg-slate-900 hover:bg-black transition-all shadow-sm flex items-center justify-center gap-2 group"
@@ -62,7 +97,7 @@ export const HomePage: React.FC = () => {
         </div>
 
         {/* First Screen Visual: Showing the Real People Behind the Forum */}
-        <div className="rounded-3xl overflow-hidden border border-slate-200 bg-white shadow-sm text-left mb-10">
+        <div className="rounded-3xl overflow-hidden border border-slate-200 bg-white shadow-sm text-left mb-10 animate-hero-visual">
           <div className="relative aspect-[16/9] sm:aspect-[21/9] w-full overflow-hidden bg-slate-100">
             <img
               src="/images/gallery/ncmf-merit-awards-gathering.jpg"
