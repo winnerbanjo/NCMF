@@ -45,19 +45,19 @@ export const AppContent: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#070b12] text-slate-100 selection:bg-amber-500 selection:text-black">
-      {/* Persistent Navigation Bar */}
+    <div className="min-h-screen flex flex-col bg-white text-slate-900 selection:bg-slate-900 selection:text-white">
+      {/* Navigation */}
       <Navbar />
 
       {/* Main Content Area */}
-      <main className="flex-1">
+      <main className="flex-1 bg-white">
         {renderCurrentPage()}
       </main>
 
-      {/* Persistent Footer */}
+      {/* Footer */}
       <Footer />
 
-      {/* Floating Interactive WhatsApp Widget */}
+      {/* Interactive WhatsApp Widget */}
       <WhatsAppWidget />
 
       {/* Modals */}
@@ -66,7 +66,7 @@ export const AppContent: React.FC = () => {
 
       {/* Global Toast Notification */}
       {toast && (
-        <div className="fixed bottom-6 left-6 z-50 max-w-sm rounded-2xl p-4 shadow-2xl backdrop-blur-xl border flex items-start gap-3 animate-slideUp bg-[#0d1424]/95 text-xs text-white border-white/20">
+        <div className="fixed bottom-6 left-6 z-50 max-w-sm rounded-xl p-4 shadow-xl border flex items-start gap-3 animate-slideUp bg-slate-900 text-xs text-white border-slate-800">
           {toast.type === 'success' && <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0 mt-0.5" />}
           {toast.type === 'error' && <AlertCircle className="w-5 h-5 text-red-400 shrink-0 mt-0.5" />}
           {toast.type === 'info' && <Info className="w-5 h-5 text-amber-400 shrink-0 mt-0.5" />}

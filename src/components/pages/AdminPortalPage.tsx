@@ -3,20 +3,14 @@ import { useApp } from '../../context/AppContext';
 import { MembershipApplication, EventItem } from '../../types';
 import { 
   Lock, 
-  ShieldCheck, 
-  Users, 
-  Calendar, 
   CheckCircle2, 
   XCircle, 
   Clock, 
   Search, 
   Download, 
   Plus, 
-  FileText, 
   ExternalLink,
-  Tag,
-  Eye,
-  AlertCircle
+  Eye
 } from 'lucide-react';
 
 export const AdminPortalPage: React.FC = () => {
@@ -26,18 +20,17 @@ export const AdminPortalPage: React.FC = () => {
     members, 
     events, 
     addEvent, 
-    showToast,
-    setCurrentPage 
+    showToast 
   } = useApp();
 
-  const [activeTab, setActiveTab] = useState<'applications' | 'cms-events' | 'directory-sync'>('applications');
+  const [activeTab, setActiveTab] = useState<'applications' | 'cms-events'>('applications');
   const [statusFilter, setStatusFilter] = useState<'all' | 'pending' | 'under_review' | 'approved' | 'rejected'>('all');
   const [searchTerm, setSearchTerm] = useState('');
   
   // Inspecting Application Modal
   const [inspectingApp, setInspectingApp] = useState<MembershipApplication | null>(null);
   const [reviewerNotes, setReviewerNotes] = useState('');
-  const [reviewerName, setReviewerName] = useState('Stella-Maris Nnaji (National Secretary)');
+  const [reviewerName] = useState('Stella-Maris Nnaji (National Secretary)');
 
   // New Event Form State
   const [newEventTitle, setNewEventTitle] = useState('');
@@ -53,7 +46,6 @@ export const AdminPortalPage: React.FC = () => {
   const totalApps = applications.length;
   const pendingApps = applications.filter(a => a.status === 'pending').length;
   const underReviewApps = applications.filter(a => a.status === 'under_review').length;
-  const approvedApps = applications.filter(a => a.status === 'approved').length;
   const directoryCount = members.filter(m => m.directoryOptIn).length;
 
   // Filtered Applications
@@ -129,23 +121,23 @@ export const AdminPortalPage: React.FC = () => {
   };
 
   return (
-    <div className="space-y-12 pb-24">
+    <div className="space-y-12 pb-24 bg-white text-slate-900">
       {/* Top Banner */}
-      <section className="relative pt-10 pb-6 border-b border-white/10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative pt-10 pb-6 border-b border-slate-200 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
           <div className="space-y-1">
             <div className="flex items-center gap-2">
-              <span className="p-1 rounded bg-amber-500/20 text-amber-400 border border-amber-500/30">
+              <span className="p-1 rounded bg-slate-100 text-slate-800 border border-slate-200">
                 <Lock className="w-4 h-4" />
               </span>
-              <span className="text-xs font-mono font-bold text-amber-400 tracking-wider uppercase">
+              <span className="text-xs font-mono font-bold text-slate-700 tracking-wider uppercase">
                 Secretariat Operations CMS
               </span>
             </div>
-            <h1 className="font-display font-bold text-2xl sm:text-3xl text-white">
+            <h1 className="font-display font-bold text-2xl sm:text-3xl text-slate-950">
               Application Vetting & Content Governance
             </h1>
-            <p className="text-xs text-slate-400">
+            <p className="text-xs text-slate-500">
               Manage incoming membership registrations, record vetting decisions, and administer public events.
             </p>
           </div>
@@ -153,14 +145,14 @@ export const AdminPortalPage: React.FC = () => {
           <div className="flex items-center gap-3">
             <button
               onClick={exportApplicationsToCSV}
-              className="px-4 py-2 rounded-xl text-xs font-semibold bg-white/5 hover:bg-white/10 text-slate-200 border border-white/10 flex items-center gap-1.5 transition-colors"
+              className="px-4 py-2 rounded-full text-xs font-semibold bg-white hover:bg-slate-50 text-slate-800 border border-slate-300 flex items-center gap-1.5 transition-colors shadow-xs"
             >
-              <Download className="w-3.5 h-3.5 text-amber-400" />
+              <Download className="w-3.5 h-3.5 text-slate-700" />
               Export CSV
             </button>
             <button
               onClick={() => setIsEventModalOpen(true)}
-              className="px-4 py-2 rounded-xl text-xs font-bold text-black bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 transition-all shadow-md flex items-center gap-1.5"
+              className="px-4 py-2 rounded-full text-xs font-bold text-white bg-slate-900 hover:bg-black transition-all shadow-xs flex items-center gap-1.5"
             >
               <Plus className="w-4 h-4" />
               Publish New Event
@@ -170,37 +162,37 @@ export const AdminPortalPage: React.FC = () => {
 
         {/* Real-time KPI Cards */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-8">
-          <div className="p-4 rounded-2xl bg-[#0c121e] border border-white/10 space-y-1">
-            <span className="text-xs text-slate-400 uppercase tracking-wider font-semibold block">Total Applicants</span>
-            <span className="font-display font-bold text-2xl sm:text-3xl text-white">{totalApps}</span>
+          <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-1">
+            <span className="text-xs text-slate-500 uppercase tracking-wider font-semibold block">Total Applicants</span>
+            <span className="font-display font-bold text-2xl sm:text-3xl text-slate-950">{totalApps}</span>
           </div>
 
-          <div className="p-4 rounded-2xl bg-[#0c121e] border border-amber-500/30 space-y-1">
-            <span className="text-xs text-amber-400 uppercase tracking-wider font-semibold block">Pending Review</span>
-            <span className="font-display font-bold text-2xl sm:text-3xl text-amber-400">{pendingApps}</span>
+          <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-1">
+            <span className="text-xs text-slate-700 uppercase tracking-wider font-semibold block">Pending Review</span>
+            <span className="font-display font-bold text-2xl sm:text-3xl text-slate-900">{pendingApps}</span>
           </div>
 
-          <div className="p-4 rounded-2xl bg-[#0c121e] border border-blue-500/30 space-y-1">
-            <span className="text-xs text-blue-400 uppercase tracking-wider font-semibold block">Under Vetting</span>
-            <span className="font-display font-bold text-2xl sm:text-3xl text-blue-400">{underReviewApps}</span>
+          <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-1">
+            <span className="text-xs text-slate-700 uppercase tracking-wider font-semibold block">Under Vetting</span>
+            <span className="font-display font-bold text-2xl sm:text-3xl text-slate-900">{underReviewApps}</span>
           </div>
 
-          <div className="p-4 rounded-2xl bg-[#0c121e] border border-emerald-500/30 space-y-1">
-            <span className="text-xs text-emerald-400 uppercase tracking-wider font-semibold block">Public Directory</span>
-            <span className="font-display font-bold text-2xl sm:text-3xl text-emerald-400">{directoryCount}</span>
+          <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-1">
+            <span className="text-xs text-emerald-700 uppercase tracking-wider font-semibold block">Public Directory</span>
+            <span className="font-display font-bold text-2xl sm:text-3xl text-emerald-800">{directoryCount}</span>
           </div>
         </div>
       </section>
 
       {/* Tabs Switcher */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center gap-2 border-b border-white/10 pb-4">
+        <div className="flex items-center gap-2 border-b border-slate-200 pb-4">
           <button
             onClick={() => setActiveTab('applications')}
-            className={`px-5 py-2.5 rounded-xl text-xs font-bold transition-all ${
+            className={`px-5 py-2.5 rounded-full text-xs font-bold transition-all ${
               activeTab === 'applications'
-                ? 'bg-amber-500 text-black shadow-md'
-                : 'text-slate-400 hover:text-white bg-white/5'
+                ? 'bg-slate-900 text-white shadow-xs'
+                : 'text-slate-600 hover:text-slate-900 bg-slate-100'
             }`}
           >
             Membership Applications Queue ({applications.length})
@@ -208,10 +200,10 @@ export const AdminPortalPage: React.FC = () => {
 
           <button
             onClick={() => setActiveTab('cms-events')}
-            className={`px-5 py-2.5 rounded-xl text-xs font-bold transition-all ${
+            className={`px-5 py-2.5 rounded-full text-xs font-bold transition-all ${
               activeTab === 'cms-events'
-                ? 'bg-amber-500 text-black shadow-md'
-                : 'text-slate-400 hover:text-white bg-white/5'
+                ? 'bg-slate-900 text-white shadow-xs'
+                : 'text-slate-600 hover:text-slate-900 bg-slate-100'
             }`}
           >
             Events CMS ({events.length})
@@ -224,17 +216,17 @@ export const AdminPortalPage: React.FC = () => {
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
           
           {/* Filter Bar */}
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 p-4 rounded-2xl bg-[#0c121e] border border-white/10">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 p-4 rounded-2xl bg-slate-50 border border-slate-200">
             {/* Status Pills */}
             <div className="flex flex-wrap items-center gap-2 w-full sm:w-auto">
               {(['all', 'pending', 'under_review', 'approved', 'rejected'] as const).map(st => (
                 <button
                   key={st}
                   onClick={() => setStatusFilter(st)}
-                  className={`px-3 py-1.5 rounded-lg text-xs font-semibold capitalize transition-all ${
+                  className={`px-3 py-1.5 rounded-full text-xs font-semibold capitalize transition-all ${
                     statusFilter === st
-                      ? 'bg-amber-400 text-black font-bold'
-                      : 'text-slate-400 hover:text-white bg-white/5'
+                      ? 'bg-slate-900 text-white font-bold'
+                      : 'text-slate-600 hover:text-slate-900 bg-white border border-slate-200'
                   }`}
                 >
                   {st.replace('_', ' ')}
@@ -250,16 +242,16 @@ export const AdminPortalPage: React.FC = () => {
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 placeholder="Search applicant or ref..."
-                className="w-full bg-[#141e30] border border-white/10 rounded-xl pl-9 pr-3 py-2 text-xs text-white placeholder-slate-400 focus:outline-none focus:border-amber-500"
+                className="w-full bg-white border border-slate-300 rounded-xl pl-9 pr-3 py-2 text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:border-slate-900 shadow-xs"
               />
             </div>
           </div>
 
           {/* Applications Table */}
-          <div className="rounded-2xl border border-white/10 bg-[#0c121e] overflow-hidden shadow-2xl">
+          <div className="rounded-2xl border border-slate-200 bg-white overflow-hidden shadow-xs">
             <div className="overflow-x-auto">
               <table className="w-full text-left text-xs">
-                <thead className="bg-[#121927] border-b border-white/10 text-slate-400 uppercase tracking-wider font-semibold">
+                <thead className="bg-slate-50 border-b border-slate-200 text-slate-600 uppercase tracking-wider font-semibold">
                   <tr>
                     <th className="p-4">Reference</th>
                     <th className="p-4">Applicant</th>
@@ -271,47 +263,47 @@ export const AdminPortalPage: React.FC = () => {
                     <th className="p-4 text-right">Action</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-white/5 text-slate-300">
+                <tbody className="divide-y divide-slate-100 text-slate-700">
                   {filteredApps.map((app) => (
-                    <tr key={app.id} className="hover:bg-white/[0.02] transition-colors">
-                      <td className="p-4 font-mono font-bold text-amber-400">
+                    <tr key={app.id} className="hover:bg-slate-50/50 transition-colors">
+                      <td className="p-4 font-mono font-bold text-slate-900">
                         {app.referenceNumber}
                       </td>
                       <td className="p-4">
-                        <span className="font-semibold text-white block">{app.fullName}</span>
-                        <span className="text-[11px] text-slate-400">{app.email}</span>
+                        <span className="font-semibold text-slate-950 block">{app.fullName}</span>
+                        <span className="text-[11px] text-slate-500">{app.email}</span>
                       </td>
                       <td className="p-4">
-                        <span className="px-2 py-0.5 rounded bg-white/5 text-slate-200">
+                        <span className="px-2 py-0.5 rounded bg-slate-100 text-slate-800 border border-slate-200">
                           {app.discipline}
                         </span>
                       </td>
-                      <td className="p-4 text-slate-400">
+                      <td className="p-4 text-slate-600">
                         {app.experienceYears}
                       </td>
                       <td className="p-4">
                         {app.directoryOptIn ? (
-                          <span className="text-emerald-400 font-semibold flex items-center gap-1">
+                          <span className="text-emerald-700 font-semibold flex items-center gap-1">
                             <CheckCircle2 className="w-3.5 h-3.5" /> Opted In
                           </span>
                         ) : (
-                          <span className="text-slate-500">Private</span>
+                          <span className="text-slate-400">Private</span>
                         )}
                       </td>
                       <td className="p-4">
                         <span className={`px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider ${
                           app.status === 'approved'
-                            ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30'
+                            ? 'bg-emerald-100 text-emerald-800 border border-emerald-200'
                             : app.status === 'pending'
-                            ? 'bg-amber-500/20 text-amber-400 border border-amber-500/30'
+                            ? 'bg-amber-100 text-amber-800 border border-amber-200'
                             : app.status === 'under_review'
-                            ? 'bg-blue-500/20 text-blue-400 border border-blue-500/30'
-                            : 'bg-red-500/20 text-red-400 border border-red-500/30'
+                            ? 'bg-blue-100 text-blue-800 border border-blue-200'
+                            : 'bg-red-100 text-red-800 border border-red-200'
                         }`}>
                           {app.status.replace('_', ' ')}
                         </span>
                       </td>
-                      <td className="p-4 text-slate-400 text-[11px]">
+                      <td className="p-4 text-slate-500 text-[11px]">
                         {app.submittedAt}
                       </td>
                       <td className="p-4 text-right">
@@ -320,7 +312,7 @@ export const AdminPortalPage: React.FC = () => {
                             setInspectingApp(app);
                             setReviewerNotes(app.reviewerNotes || '');
                           }}
-                          className="px-3 py-1.5 rounded-lg bg-amber-500/10 hover:bg-amber-500/20 text-amber-300 font-semibold text-xs border border-amber-500/30 flex items-center gap-1 ml-auto"
+                          className="px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-900 font-semibold text-xs border border-slate-200 flex items-center gap-1 ml-auto"
                         >
                           <Eye className="w-3.5 h-3.5" />
                           Review & Vet
@@ -339,12 +331,12 @@ export const AdminPortalPage: React.FC = () => {
       {activeTab === 'cms-events' && (
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
           <div className="flex items-center justify-between">
-            <h3 className="font-display font-bold text-xl text-white">
+            <h3 className="font-display font-bold text-xl text-slate-950">
               Public Event Schedules ({events.length})
             </h3>
             <button
               onClick={() => setIsEventModalOpen(true)}
-              className="px-4 py-2 rounded-xl text-xs font-bold text-black bg-amber-400 hover:bg-amber-300 transition-colors flex items-center gap-1.5"
+              className="px-4 py-2 rounded-full text-xs font-bold text-white bg-slate-900 hover:bg-black transition-colors flex items-center gap-1.5"
             >
               <Plus className="w-3.5 h-3.5" /> Add New Event
             </button>
@@ -352,24 +344,24 @@ export const AdminPortalPage: React.FC = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {events.map((evt) => (
-              <div key={evt.id} className="p-6 rounded-2xl bg-[#0c121e] border border-white/10 space-y-3">
+              <div key={evt.id} className="p-6 rounded-2xl bg-white border border-slate-200 shadow-xs space-y-3">
                 <div className="flex items-center justify-between">
-                  <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-amber-500/10 text-amber-300 border border-amber-500/20">
+                  <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-slate-100 text-slate-800 border border-slate-200">
                     {evt.category}
                   </span>
-                  <span className="text-xs text-slate-400">{evt.date}</span>
+                  <span className="text-xs text-slate-500">{evt.date}</span>
                 </div>
 
-                <h4 className="font-display font-bold text-lg text-white">{evt.title}</h4>
-                <p className="text-xs text-slate-400">{evt.venue}</p>
+                <h4 className="font-display font-bold text-lg text-slate-950">{evt.title}</h4>
+                <p className="text-xs text-slate-500">{evt.venue}</p>
 
-                <p className="text-xs text-slate-300 line-clamp-2">{evt.description}</p>
+                <p className="text-xs text-slate-600 line-clamp-2">{evt.description}</p>
 
-                <div className="pt-2 border-t border-white/5 flex items-center justify-between text-xs">
-                  <span className="text-slate-400">
+                <div className="pt-2 border-t border-slate-100 flex items-center justify-between text-xs">
+                  <span className="text-slate-500">
                     {evt.registrationUrl ? '✅ Registration Active' : '⚠️ No Link (Booking Hidden)'}
                   </span>
-                  <span className={`px-2 py-0.5 rounded text-[10px] font-semibold ${evt.isUpcoming ? 'text-emerald-400 bg-emerald-500/10' : 'text-slate-500'}`}>
+                  <span className={`px-2 py-0.5 rounded text-[10px] font-semibold ${evt.isUpcoming ? 'text-emerald-800 bg-emerald-100' : 'text-slate-500'}`}>
                     {evt.isUpcoming ? 'Upcoming' : 'Archive'}
                   </span>
                 </div>
@@ -382,64 +374,64 @@ export const AdminPortalPage: React.FC = () => {
       {/* Application Inspection & Decision Modal */}
       {inspectingApp && (
         <div 
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/85 backdrop-blur-md animate-fadeIn"
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-slate-900/60 backdrop-blur-sm animate-fadeIn"
           onClick={() => setInspectingApp(null)}
         >
           <div 
-            className="w-full max-w-2xl bg-[#0c121e] border border-amber-500/30 rounded-3xl p-6 sm:p-8 space-y-6 shadow-2xl relative max-h-[90vh] overflow-y-auto"
+            className="w-full max-w-2xl bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 space-y-6 shadow-2xl relative max-h-[90vh] overflow-y-auto"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="flex items-center justify-between border-b border-white/10 pb-4">
+            <div className="flex items-center justify-between border-b border-slate-100 pb-4">
               <div>
-                <span className="text-xs font-mono font-bold text-amber-400">
+                <span className="text-xs font-mono font-bold text-slate-600">
                   {inspectingApp.referenceNumber}
                 </span>
-                <h3 className="font-display font-bold text-2xl text-white">
+                <h3 className="font-display font-bold text-2xl text-slate-950">
                   {inspectingApp.fullName}
                 </h3>
               </div>
               <button
                 onClick={() => setInspectingApp(null)}
-                className="text-slate-400 hover:text-white"
+                className="text-slate-400 hover:text-slate-700"
               >
                 ✕
               </button>
             </div>
 
             {/* Applicant Profile Grid */}
-            <div className="grid grid-cols-2 gap-4 text-xs bg-[#121927] p-4 rounded-2xl border border-white/5">
+            <div className="grid grid-cols-2 gap-4 text-xs bg-slate-50 p-4 rounded-2xl border border-slate-200">
               <div>
-                <span className="text-slate-400 block mb-0.5">Email</span>
-                <span className="text-white font-medium break-all">{inspectingApp.email}</span>
+                <span className="text-slate-500 block mb-0.5">Email</span>
+                <span className="text-slate-900 font-medium break-all">{inspectingApp.email}</span>
               </div>
               <div>
-                <span className="text-slate-400 block mb-0.5">Phone / WhatsApp</span>
-                <span className="text-white font-mono">{inspectingApp.phone}</span>
+                <span className="text-slate-500 block mb-0.5">Phone / WhatsApp</span>
+                <span className="text-slate-900 font-mono font-medium">{inspectingApp.phone}</span>
               </div>
               <div>
-                <span className="text-slate-400 block mb-0.5">Creative Discipline</span>
-                <span className="text-amber-300 font-bold">{inspectingApp.discipline}</span>
+                <span className="text-slate-500 block mb-0.5">Creative Discipline</span>
+                <span className="text-slate-900 font-bold">{inspectingApp.discipline}</span>
               </div>
               <div>
-                <span className="text-slate-400 block mb-0.5">Industry Experience</span>
-                <span className="text-white">{inspectingApp.experienceYears} ({inspectingApp.stateOfResidence})</span>
+                <span className="text-slate-500 block mb-0.5">Industry Experience</span>
+                <span className="text-slate-900">{inspectingApp.experienceYears} ({inspectingApp.stateOfResidence})</span>
               </div>
               <div>
-                <span className="text-slate-400 block mb-0.5">Directory Preference</span>
-                <span className="text-white">{inspectingApp.directoryOptIn ? 'Consented to Public Listing' : 'Private'}</span>
+                <span className="text-slate-500 block mb-0.5">Directory Preference</span>
+                <span className="text-slate-900">{inspectingApp.directoryOptIn ? 'Consented to Public Listing' : 'Private'}</span>
               </div>
               <div>
-                <span className="text-slate-400 block mb-0.5">Submission Date</span>
-                <span className="text-white">{inspectingApp.submittedAt}</span>
+                <span className="text-slate-500 block mb-0.5">Submission Date</span>
+                <span className="text-slate-900">{inspectingApp.submittedAt}</span>
               </div>
             </div>
 
             {/* Statement of Purpose */}
             <div className="space-y-1.5 text-xs">
-              <span className="text-slate-400 font-bold uppercase tracking-wider block">
+              <span className="text-slate-600 font-bold uppercase tracking-wider block">
                 Applicant Statement & Bio:
               </span>
-              <div className="p-4 rounded-xl bg-black/40 border border-white/5 text-slate-200 leading-relaxed">
+              <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 text-slate-700 leading-relaxed">
                 {inspectingApp.statementOfPurpose}
               </div>
             </div>
@@ -452,7 +444,7 @@ export const AdminPortalPage: React.FC = () => {
                     href={inspectingApp.portfolioUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-3 py-1.5 rounded-lg bg-white/5 text-amber-300 hover:underline flex items-center gap-1 border border-white/10"
+                    className="px-3 py-1.5 rounded-lg bg-slate-100 text-slate-800 hover:underline flex items-center gap-1 border border-slate-200"
                   >
                     View Portfolio / Showreel <ExternalLink className="w-3 h-3" />
                   </a>
@@ -462,7 +454,7 @@ export const AdminPortalPage: React.FC = () => {
                     href={inspectingApp.imdbUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-3 py-1.5 rounded-lg bg-yellow-500/10 text-yellow-300 hover:underline flex items-center gap-1 border border-yellow-500/20"
+                    className="px-3 py-1.5 rounded-lg bg-slate-100 text-slate-800 hover:underline flex items-center gap-1 border border-slate-200"
                   >
                     View IMDb Profile <ExternalLink className="w-3 h-3" />
                   </a>
@@ -471,8 +463,8 @@ export const AdminPortalPage: React.FC = () => {
             )}
 
             {/* Reviewer Section */}
-            <div className="space-y-3 pt-4 border-t border-white/10">
-              <label className="text-xs font-semibold text-slate-200 block">
+            <div className="space-y-3 pt-4 border-t border-slate-100">
+              <label className="text-xs font-semibold text-slate-700 block">
                 Reviewer Evaluation Notes & Decision Record:
               </label>
               <textarea
@@ -480,16 +472,16 @@ export const AdminPortalPage: React.FC = () => {
                 value={reviewerNotes}
                 onChange={(e) => setReviewerNotes(e.target.value)}
                 placeholder="Enter notes on credentials verified, guild recommendation, or request for additional documentation..."
-                className="w-full bg-[#141e30] border border-white/10 rounded-xl p-3 text-xs text-white placeholder-slate-400 focus:outline-none focus:border-amber-500 resize-none"
+                className="w-full bg-white border border-slate-300 rounded-xl p-3 text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:border-slate-900 resize-none"
               />
             </div>
 
             {/* Decision Actions */}
-            <div className="pt-2 flex flex-wrap items-center justify-between gap-3 border-t border-white/10">
+            <div className="pt-2 flex flex-wrap items-center justify-between gap-3 border-t border-slate-100">
               <button
                 type="button"
                 onClick={() => handleDecision('rejected')}
-                className="px-4 py-2.5 rounded-xl text-xs font-bold text-red-400 bg-red-950/40 border border-red-500/30 hover:bg-red-900/50 transition-colors flex items-center gap-1.5"
+                className="px-4 py-2.5 rounded-full text-xs font-bold text-red-700 bg-red-50 border border-red-200 hover:bg-red-100 transition-colors flex items-center gap-1.5"
               >
                 <XCircle className="w-4 h-4" /> Reject Application
               </button>
@@ -498,7 +490,7 @@ export const AdminPortalPage: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => handleDecision('under_review')}
-                  className="px-4 py-2.5 rounded-xl text-xs font-bold text-blue-300 bg-blue-950/40 border border-blue-500/30 hover:bg-blue-900/50 transition-colors flex items-center gap-1.5"
+                  className="px-4 py-2.5 rounded-full text-xs font-bold text-blue-800 bg-blue-50 border border-blue-200 hover:bg-blue-100 transition-colors flex items-center gap-1.5"
                 >
                   <Clock className="w-4 h-4" /> Mark Under Review
                 </button>
@@ -506,7 +498,7 @@ export const AdminPortalPage: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => handleDecision('approved')}
-                  className="px-6 py-2.5 rounded-xl text-xs font-bold text-black bg-gradient-to-r from-emerald-400 to-teal-400 hover:from-emerald-300 transition-all shadow-md flex items-center gap-1.5"
+                  className="px-6 py-2.5 rounded-full text-xs font-bold text-white bg-slate-900 hover:bg-black transition-all shadow-xs flex items-center gap-1.5"
                 >
                   <CheckCircle2 className="w-4 h-4" /> Approve & Enrol
                 </button>
@@ -519,49 +511,49 @@ export const AdminPortalPage: React.FC = () => {
       {/* Create Event Modal */}
       {isEventModalOpen && (
         <div 
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-fadeIn"
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm animate-fadeIn"
           onClick={() => setIsEventModalOpen(false)}
         >
           <div 
-            className="w-full max-w-lg bg-[#0c121e] border border-amber-500/30 rounded-3xl p-6 sm:p-8 space-y-5 shadow-2xl relative"
+            className="w-full max-w-lg bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 space-y-5 shadow-2xl relative"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="flex items-center justify-between border-b border-white/10 pb-4">
-              <h3 className="font-display font-bold text-xl text-white">Publish New NCMF Event</h3>
-              <button onClick={() => setIsEventModalOpen(false)} className="text-slate-400 hover:text-white">✕</button>
+            <div className="flex items-center justify-between border-b border-slate-100 pb-4">
+              <h3 className="font-display font-bold text-xl text-slate-950">Publish New NCMF Event</h3>
+              <button onClick={() => setIsEventModalOpen(false)} className="text-slate-400 hover:text-slate-700">✕</button>
             </div>
 
             <form onSubmit={handleCreateEvent} className="space-y-4 text-xs">
               <div className="space-y-1">
-                <label className="font-semibold text-slate-200">Event Title *</label>
+                <label className="font-semibold text-slate-700">Event Title *</label>
                 <input
                   type="text"
                   required
                   value={newEventTitle}
                   onChange={(e) => setNewEventTitle(e.target.value)}
                   placeholder="e.g. Cinematic Directing & Screenplay Lab 2027"
-                  className="w-full bg-[#141e30] border border-white/10 rounded-xl px-4 py-2.5 text-white focus:outline-none focus:border-amber-500"
+                  className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2.5 text-slate-900 focus:outline-none focus:border-slate-900"
                 />
               </div>
 
               <div className="grid grid-cols-2 gap-3">
                 <div className="space-y-1">
-                  <label className="font-semibold text-slate-200">Date *</label>
+                  <label className="font-semibold text-slate-700">Date *</label>
                   <input
                     type="text"
                     required
                     value={newEventDate}
                     onChange={(e) => setNewEventDate(e.target.value)}
                     placeholder="e.g. March 14, 2027"
-                    className="w-full bg-[#141e30] border border-white/10 rounded-xl px-4 py-2.5 text-white focus:outline-none focus:border-amber-500"
+                    className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2.5 text-slate-900 focus:outline-none focus:border-slate-900"
                   />
                 </div>
                 <div className="space-y-1">
-                  <label className="font-semibold text-slate-200">Category</label>
+                  <label className="font-semibold text-slate-700">Category</label>
                   <select
                     value={newEventCategory}
                     onChange={(e) => setNewEventCategory(e.target.value as EventItem['category'])}
-                    className="w-full bg-[#141e30] border border-white/10 rounded-xl px-3 py-2.5 text-white focus:outline-none focus:border-amber-500"
+                    className="w-full bg-white border border-slate-300 rounded-xl px-3 py-2.5 text-slate-900 focus:outline-none focus:border-slate-900"
                   >
                     <option value="Annual Seminar">Annual Seminar</option>
                     <option value="Workshop & Masterclass">Workshop & Masterclass</option>
@@ -572,37 +564,37 @@ export const AdminPortalPage: React.FC = () => {
               </div>
 
               <div className="space-y-1">
-                <label className="font-semibold text-slate-200">Venue</label>
+                <label className="font-semibold text-slate-700">Venue</label>
                 <input
                   type="text"
                   value={newEventVenue}
                   onChange={(e) => setNewEventVenue(e.target.value)}
                   placeholder="e.g. Four Points by Sheraton, Lagos"
-                  className="w-full bg-[#141e30] border border-white/10 rounded-xl px-4 py-2.5 text-white focus:outline-none focus:border-amber-500"
+                  className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2.5 text-slate-900 focus:outline-none focus:border-slate-900"
                 />
               </div>
 
               <div className="space-y-1">
-                <label className="font-semibold text-slate-200">Registration Link (Optional)</label>
+                <label className="font-semibold text-slate-700">Registration Link (Optional)</label>
                 <input
                   type="url"
                   value={newEventRegUrl}
                   onChange={(e) => setNewEventRegUrl(e.target.value)}
                   placeholder="https://forms.gle/... (Leave blank if not yet open)"
-                  className="w-full bg-[#141e30] border border-white/10 rounded-xl px-4 py-2.5 text-white focus:outline-none focus:border-amber-500"
+                  className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2.5 text-slate-900 focus:outline-none focus:border-slate-900"
                 />
                 <span className="text-[10px] text-slate-400">If blank, PRD rule hides booking button until link is supplied</span>
               </div>
 
               <div className="space-y-1">
-                <label className="font-semibold text-slate-200">Description *</label>
+                <label className="font-semibold text-slate-700">Description *</label>
                 <textarea
                   rows={3}
                   required
                   value={newEventDescription}
                   onChange={(e) => setNewEventDescription(e.target.value)}
                   placeholder="Brief synopsis of topics, speakers, and schedule..."
-                  className="w-full bg-[#141e30] border border-white/10 rounded-xl p-3 text-white focus:outline-none focus:border-amber-500 resize-none"
+                  className="w-full bg-white border border-slate-300 rounded-xl p-3 text-slate-900 focus:outline-none focus:border-slate-900 resize-none"
                 />
               </div>
 
@@ -610,13 +602,13 @@ export const AdminPortalPage: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => setIsEventModalOpen(false)}
-                  className="px-4 py-2 text-slate-400 hover:text-white"
+                  className="px-4 py-2 text-slate-500 hover:text-slate-800"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
-                  className="px-6 py-2.5 rounded-xl font-bold text-black bg-amber-400 hover:bg-amber-300 shadow-md"
+                  className="px-6 py-2.5 rounded-full font-bold text-white bg-slate-900 hover:bg-black shadow-xs"
                 >
                   Publish Event
                 </button>

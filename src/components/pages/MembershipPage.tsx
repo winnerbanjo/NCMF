@@ -5,11 +5,9 @@ import confetti from 'canvas-confetti';
 import { 
   ShieldCheck, 
   CheckCircle2, 
-  Award, 
   Users, 
   HeartHandshake, 
   BookOpen, 
-  FileText, 
   ArrowRight, 
   AlertCircle,
   Copy,
@@ -111,10 +109,10 @@ export const MembershipPage: React.FC = () => {
         // Trigger celebratory confetti
         try {
           confetti({
-            particleCount: 100,
-            spread: 70,
+            particleCount: 80,
+            spread: 60,
             origin: { y: 0.6 },
-            colors: ['#D49526', '#F5C05C', '#10B981', '#FFFFFF']
+            colors: ['#0f172a', '#10B981', '#475569', '#cbd5e1']
           });
         } catch (err) {
           console.log('Confetti trigger', err);
@@ -125,7 +123,7 @@ export const MembershipPage: React.FC = () => {
       } else {
         setErrorMessage(res.message);
       }
-    }, 600);
+    }, 500);
   };
 
   const copyRefCode = () => {
@@ -137,19 +135,19 @@ export const MembershipPage: React.FC = () => {
   };
 
   return (
-    <div className="space-y-20 pb-24">
+    <div className="space-y-20 pb-24 bg-white text-slate-900">
       {/* Page Header */}
       <section className="relative pt-12 pb-8 text-center max-w-4xl mx-auto px-4 sm:px-6">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-300 text-xs font-semibold mb-6">
-          <ShieldCheck className="w-4 h-4 text-amber-400" />
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-slate-800 text-xs font-semibold mb-6">
+          <ShieldCheck className="w-4 h-4 text-slate-700" />
           <span>Professional Guild Membership</span>
         </div>
 
-        <h1 className="font-display font-extrabold text-4xl sm:text-5xl lg:text-6xl text-white tracking-tight leading-tight mb-6">
+        <h1 className="font-display font-extrabold text-4xl sm:text-5xl lg:text-6xl text-slate-950 tracking-tight leading-tight mb-6">
           Elevate Your Film Career with NCMF
         </h1>
 
-        <p className="text-base sm:text-lg text-slate-300 leading-relaxed font-normal">
+        <p className="text-base sm:text-lg text-slate-600 leading-relaxed font-normal">
           Join a dedicated community of Nigerian film practitioners. Access our comprehensive industry welfare package, collaborative short & feature film productions, and high-impact industry networking.
         </p>
       </section>
@@ -159,118 +157,118 @@ export const MembershipPage: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
           
           {/* Card 1: Professional Tier Benefits */}
-          <div className="lg:col-span-8 rounded-3xl p-8 sm:p-10 bg-[#0c121e] border border-amber-500/30 shadow-2xl flex flex-col justify-between space-y-6">
+          <div className="lg:col-span-8 rounded-3xl p-8 sm:p-10 bg-white border border-slate-200 shadow-sm flex flex-col justify-between space-y-6">
             <div className="space-y-4">
               <div className="flex flex-wrap items-center justify-between gap-2">
-                <span className="px-3.5 py-1 rounded-full text-xs font-bold bg-amber-500 text-black uppercase tracking-wider">
+                <span className="px-3.5 py-1 rounded-full text-xs font-bold bg-slate-900 text-white uppercase tracking-wider">
                   Approved Category: Professional Member
                 </span>
-                <span className="text-xs text-slate-400 flex items-center gap-1">
-                  <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
+                <span className="text-xs text-slate-500 flex items-center gap-1 font-medium">
+                  <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
                   Direct Guild Induction
                 </span>
               </div>
 
-              <h2 className="font-display font-bold text-2xl sm:text-3xl text-white">
+              <h2 className="font-display font-bold text-2xl sm:text-3xl text-slate-950">
                 Everything You Gain as a Registered Member
               </h2>
 
-              <p className="text-sm text-slate-300 leading-relaxed">
+              <p className="text-sm text-slate-600 leading-relaxed">
                 NCMF membership is structured specifically for practicing screen performers, filmmakers, writers, and technical specialists who value high ethical standards and collaborative career progression.
               </p>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-3">
-                <div className="p-4 rounded-2xl bg-white/[0.03] border border-white/5 space-y-2">
-                  <div className="flex items-center gap-2 text-amber-400 font-semibold text-sm">
-                    <HeartHandshake className="w-4 h-4" />
+                <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-2">
+                  <div className="flex items-center gap-2 text-slate-900 font-semibold text-sm">
+                    <HeartHandshake className="w-4 h-4 text-slate-700" />
                     <span>Comprehensive Welfare Package</span>
                   </div>
-                  <p className="text-xs text-slate-400 leading-relaxed">
+                  <p className="text-xs text-slate-500 leading-relaxed">
                     Emergency benevolence assistance, safe set advocacy, hospital visitation support, and mutual guild solidarity.
                   </p>
                 </div>
 
-                <div className="p-4 rounded-2xl bg-white/[0.03] border border-white/5 space-y-2">
-                  <div className="flex items-center gap-2 text-amber-400 font-semibold text-sm">
-                    <Film className="w-4 h-4" />
+                <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-2">
+                  <div className="flex items-center gap-2 text-slate-900 font-semibold text-sm">
+                    <Film className="w-4 h-4 text-slate-700" />
                     <span>Collaborative Productions</span>
                   </div>
-                  <p className="text-xs text-slate-400 leading-relaxed">
+                  <p className="text-xs text-slate-500 leading-relaxed">
                     Priority casting and crew selection for NCMF feature films (e.g. <em>Perfect for Divorce</em>) and short-film incubators.
                   </p>
                 </div>
 
-                <div className="p-4 rounded-2xl bg-white/[0.03] border border-white/5 space-y-2">
-                  <div className="flex items-center gap-2 text-amber-400 font-semibold text-sm">
-                    <BookOpen className="w-4 h-4" />
+                <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-2">
+                  <div className="flex items-center gap-2 text-slate-900 font-semibold text-sm">
+                    <BookOpen className="w-4 h-4 text-slate-700" />
                     <span>Masterclasses & Training</span>
                   </div>
-                  <p className="text-xs text-slate-400 leading-relaxed">
+                  <p className="text-xs text-slate-500 leading-relaxed">
                     Subsidized or free access to advanced directing, screenwriting, cinematography, and British Council FilmLab Africa clinics.
                   </p>
                 </div>
 
-                <div className="p-4 rounded-2xl bg-white/[0.03] border border-white/5 space-y-2">
-                  <div className="flex items-center gap-2 text-amber-400 font-semibold text-sm">
-                    <Users className="w-4 h-4" />
+                <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-2">
+                  <div className="flex items-center gap-2 text-slate-900 font-semibold text-sm">
+                    <Users className="w-4 h-4 text-slate-700" />
                     <span>Verified Public Directory</span>
                   </div>
-                  <p className="text-xs text-slate-400 leading-relaxed">
+                  <p className="text-xs text-slate-500 leading-relaxed">
                     Optionally showcase your verified filmography, bio, and contact credentials to casting directors and producers.
                   </p>
                 </div>
               </div>
             </div>
 
-            <div className="p-4 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-xs text-amber-200">
+            <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200 text-xs text-slate-700">
               <strong>Eligibility Criteria:</strong> Must be in the entertainment industry and an active practicing creative practitioner committed to the vision of “Optimizing Potentials”.
             </div>
           </div>
 
           {/* Card 2: Approved Fee & Process Card */}
-          <div className="lg:col-span-4 rounded-3xl p-8 bg-gradient-to-b from-[#141e30] to-[#0c1322] border border-amber-500/40 shadow-2xl flex flex-col justify-between space-y-6">
+          <div className="lg:col-span-4 rounded-3xl p-8 bg-slate-50 border border-slate-200 shadow-sm flex flex-col justify-between space-y-6">
             <div className="space-y-4">
-              <span className="text-xs font-mono uppercase tracking-wider text-amber-400 font-semibold block">
+              <span className="text-xs font-mono uppercase tracking-wider text-slate-500 font-semibold block">
                 Official Registration Fee
               </span>
               <div className="flex items-baseline gap-2">
-                <span className="font-display font-extrabold text-4xl sm:text-5xl text-white">
+                <span className="font-display font-extrabold text-4xl sm:text-5xl text-slate-950">
                   ₦20,000
                 </span>
-                <span className="text-xs text-slate-400 uppercase tracking-wider">
+                <span className="text-xs text-slate-500 uppercase tracking-wider font-semibold">
                   One-Time Entry
                 </span>
               </div>
-              <p className="text-xs text-slate-300 leading-relaxed">
+              <p className="text-xs text-slate-600 leading-relaxed">
                 Covers your membership induction, guild verification, welcome secretariat package, and access to member-only platforms.
               </p>
               
-              <div className="p-3.5 rounded-xl bg-black/30 border border-white/10 text-[11px] text-slate-400 space-y-1">
-                <span className="font-semibold text-amber-300 block">Payment Roadmap Notice:</span>
+              <div className="p-3.5 rounded-xl bg-white border border-slate-200 text-[11px] text-slate-500 space-y-1">
+                <span className="font-semibold text-slate-900 block">Payment Roadmap Notice:</span>
                 <p>
                   As outlined in the PRD, submission and review occur first. Upon vetting and committee approval, official NCMF bank account payment instructions are issued directly to your email and WhatsApp.
                 </p>
               </div>
 
               <div className="space-y-2.5 pt-2">
-                <span className="text-xs font-bold text-slate-200 uppercase tracking-wider block">
+                <span className="text-xs font-bold text-slate-800 uppercase tracking-wider block">
                   Application Workflow:
                 </span>
-                <div className="space-y-2 text-xs text-slate-300">
+                <div className="space-y-2 text-xs text-slate-600">
                   <div className="flex items-center gap-2">
-                    <span className="w-5 h-5 rounded-full bg-amber-500 text-black flex items-center justify-center font-bold text-[10px]">1</span>
+                    <span className="w-5 h-5 rounded-full bg-slate-900 text-white flex items-center justify-center font-bold text-[10px]">1</span>
                     <span>Complete Online Details Below</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <span className="w-5 h-5 rounded-full bg-amber-500 text-black flex items-center justify-center font-bold text-[10px]">2</span>
+                    <span className="w-5 h-5 rounded-full bg-slate-900 text-white flex items-center justify-center font-bold text-[10px]">2</span>
                     <span>Secretariat Review & Credential Check</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <span className="w-5 h-5 rounded-full bg-amber-500 text-black flex items-center justify-center font-bold text-[10px]">3</span>
+                    <span className="w-5 h-5 rounded-full bg-slate-900 text-white flex items-center justify-center font-bold text-[10px]">3</span>
                     <span>Confirmation & ₦20,000 Registration</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <span className="w-5 h-5 rounded-full bg-amber-500 text-black flex items-center justify-center font-bold text-[10px]">4</span>
+                    <span className="w-5 h-5 rounded-full bg-slate-900 text-white flex items-center justify-center font-bold text-[10px]">4</span>
                     <span>Directory Opt-In & Induction</span>
                   </div>
                 </div>
@@ -279,7 +277,7 @@ export const MembershipPage: React.FC = () => {
 
             <a
               href="#application-form"
-              className="w-full py-3.5 rounded-xl text-center font-bold text-xs uppercase tracking-wider text-black bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 transition-all shadow-md block"
+              className="w-full py-3.5 rounded-full text-center font-semibold text-xs uppercase tracking-wider text-white bg-slate-900 hover:bg-black transition-all shadow-sm block"
             >
               Jump to Application Form ↓
             </a>
@@ -288,75 +286,75 @@ export const MembershipPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Online Application Form Section */}
+      {/* Online Application Form Section (Clean White) */}
       <section id="application-form" className="max-w-4xl mx-auto px-4 sm:px-6 scroll-mt-28">
-        <div className="rounded-3xl p-8 sm:p-12 bg-[#0b101c] border border-amber-500/30 shadow-2xl relative overflow-hidden">
+        <div className="rounded-3xl p-8 sm:p-12 bg-white border border-slate-200 shadow-sm relative overflow-hidden">
           
           <div className="text-center max-w-2xl mx-auto mb-10 space-y-3">
-            <span className="text-xs font-bold uppercase tracking-widest text-amber-400 block">
+            <span className="text-xs font-bold uppercase tracking-widest text-slate-500 block">
               Direct Online Registration
             </span>
-            <h2 className="font-display font-bold text-3xl sm:text-4xl text-white">
+            <h2 className="font-display font-bold text-3xl sm:text-4xl text-slate-950">
               NCMF Membership Application
             </h2>
-            <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">
+            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
               Fill in your details below. Once submitted, a unique application tracking code will be generated immediately.
             </p>
           </div>
 
           {/* Success Result View */}
           {successResult ? (
-            <div className="p-8 rounded-2xl bg-emerald-950/40 border border-emerald-500/40 text-center space-y-6 animate-fadeIn">
-              <div className="w-16 h-16 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 flex items-center justify-center mx-auto shadow-lg">
+            <div className="p-8 rounded-2xl bg-slate-50 border border-slate-200 text-center space-y-6 animate-fadeIn">
+              <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-200 flex items-center justify-center mx-auto shadow-sm">
                 <CheckCircle2 className="w-8 h-8" />
               </div>
 
               <div className="space-y-2">
-                <span className="text-xs font-mono uppercase tracking-widest text-emerald-400 font-bold">
+                <span className="text-xs font-mono uppercase tracking-widest text-emerald-700 font-bold">
                   Application Successfully Received
                 </span>
-                <h3 className="font-display font-bold text-2xl text-white">
+                <h3 className="font-display font-bold text-2xl text-slate-950">
                   Welcome to the Vetting Stage
                 </h3>
-                <p className="text-sm text-slate-300 max-w-lg mx-auto">
+                <p className="text-sm text-slate-600 max-w-lg mx-auto">
                   {successResult.message}
                 </p>
               </div>
 
               {/* Reference Code Card */}
-              <div className="max-w-md mx-auto p-4 rounded-xl bg-black/40 border border-emerald-500/30 flex items-center justify-between gap-4">
+              <div className="max-w-md mx-auto p-4 rounded-xl bg-white border border-slate-200 flex items-center justify-between gap-4">
                 <div className="text-left">
-                  <span className="text-[10px] uppercase tracking-wider text-slate-400 block">
+                  <span className="text-[10px] uppercase tracking-wider text-slate-500 block">
                     Your Application Reference
                   </span>
-                  <span className="font-mono font-bold text-lg text-amber-400">
+                  <span className="font-mono font-bold text-lg text-slate-950">
                     {successResult.referenceNumber}
                   </span>
                 </div>
                 <button
                   onClick={copyRefCode}
-                  className="px-3.5 py-2 rounded-lg bg-white/10 hover:bg-white/20 text-slate-200 text-xs font-semibold flex items-center gap-1.5 transition-colors"
+                  className="px-3.5 py-2 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold flex items-center gap-1.5 transition-colors"
                 >
-                  {copiedRef ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4" />}
+                  {copiedRef ? <Check className="w-4 h-4 text-emerald-600" /> : <Copy className="w-4 h-4" />}
                   {copiedRef ? 'Copied' : 'Copy'}
                 </button>
               </div>
 
               {/* What Happens Next Checklist */}
-              <div className="max-w-md mx-auto text-left space-y-2 text-xs text-slate-300 pt-2">
-                <span className="font-bold text-slate-200 uppercase tracking-wider block">
+              <div className="max-w-md mx-auto text-left space-y-2 text-xs text-slate-600 pt-2">
+                <span className="font-bold text-slate-800 uppercase tracking-wider block">
                   Next Steps:
                 </span>
                 <div className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
                   <span>The Secretariat vetting committee reviews your creative credentials.</span>
                 </div>
                 <div className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
                   <span>You will receive an official outcome notification via email ({email}) and phone/WhatsApp ({phone}).</span>
                 </div>
                 <div className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
                   <span>Once approved and induction completed, your profile will appear on our Public Member Directory.</span>
                 </div>
               </div>
@@ -364,13 +362,13 @@ export const MembershipPage: React.FC = () => {
               <div className="pt-4 flex flex-wrap items-center justify-center gap-4">
                 <button
                   onClick={() => setCurrentPage('directory')}
-                  className="px-6 py-2.5 rounded-xl text-xs font-bold bg-amber-500 text-black hover:bg-amber-400 transition-colors"
+                  className="px-6 py-2.5 rounded-full text-xs font-bold bg-slate-900 text-white hover:bg-black transition-colors"
                 >
                   View Member Directory
                 </button>
                 <button
                   onClick={() => setSuccessResult(null)}
-                  className="px-5 py-2.5 rounded-xl text-xs font-semibold text-slate-400 hover:text-white transition-colors"
+                  className="px-5 py-2.5 rounded-full text-xs font-semibold text-slate-600 hover:text-slate-950 transition-colors"
                 >
                   Submit Another Application
                 </button>
@@ -381,8 +379,8 @@ export const MembershipPage: React.FC = () => {
             <form onSubmit={handleSubmit} className="space-y-6">
               
               {errorMessage && (
-                <div className="p-4 rounded-xl bg-red-950/50 border border-red-500/40 text-red-200 text-xs flex items-start gap-2.5 animate-fadeIn">
-                  <AlertCircle className="w-4 h-4 text-red-400 shrink-0 mt-0.5" />
+                <div className="p-4 rounded-xl bg-red-50 border border-red-200 text-red-700 text-xs flex items-start gap-2.5 animate-fadeIn">
+                  <AlertCircle className="w-4 h-4 text-red-600 shrink-0 mt-0.5" />
                   <span>{errorMessage}</span>
                 </div>
               )}
@@ -390,8 +388,8 @@ export const MembershipPage: React.FC = () => {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 {/* Full Name */}
                 <div className="space-y-2">
-                  <label className="text-xs font-semibold text-slate-200 block">
-                    Full Legal or Professional Name <span className="text-amber-400">*</span>
+                  <label className="text-xs font-semibold text-slate-700 block">
+                    Full Legal or Professional Name <span className="text-red-500">*</span>
                   </label>
                   <input
                     type="text"
@@ -399,14 +397,14 @@ export const MembershipPage: React.FC = () => {
                     value={fullName}
                     onChange={(e) => setFullName(e.target.value)}
                     placeholder="e.g. Chukwuma Richard Eze"
-                    className="w-full bg-[#141e30] border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-400 focus:outline-none focus:border-amber-500 transition-colors"
+                    className="w-full bg-white border border-slate-300 rounded-xl px-4 py-3 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-slate-900 focus:ring-1 focus:ring-slate-900 transition-colors"
                   />
                 </div>
 
                 {/* Email Address */}
                 <div className="space-y-2">
-                  <label className="text-xs font-semibold text-slate-200 block">
-                    Email Address <span className="text-amber-400">*</span>
+                  <label className="text-xs font-semibold text-slate-700 block">
+                    Email Address <span className="text-red-500">*</span>
                   </label>
                   <input
                     type="email"
@@ -414,7 +412,7 @@ export const MembershipPage: React.FC = () => {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="e.g. chukwuma@filmcraft.ng"
-                    className="w-full bg-[#141e30] border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-400 focus:outline-none focus:border-amber-500 transition-colors"
+                    className="w-full bg-white border border-slate-300 rounded-xl px-4 py-3 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-slate-900 focus:ring-1 focus:ring-slate-900 transition-colors"
                   />
                 </div>
               </div>
@@ -422,8 +420,8 @@ export const MembershipPage: React.FC = () => {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 {/* Phone Number */}
                 <div className="space-y-2">
-                  <label className="text-xs font-semibold text-slate-200 block">
-                    Phone / WhatsApp Number <span className="text-amber-400">*</span>
+                  <label className="text-xs font-semibold text-slate-700 block">
+                    Phone / WhatsApp Number <span className="text-red-500">*</span>
                   </label>
                   <input
                     type="tel"
@@ -431,20 +429,20 @@ export const MembershipPage: React.FC = () => {
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
                     placeholder="e.g. 08118050555"
-                    className="w-full bg-[#141e30] border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-400 focus:outline-none focus:border-amber-500 transition-colors"
+                    className="w-full bg-white border border-slate-300 rounded-xl px-4 py-3 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-slate-900 focus:ring-1 focus:ring-slate-900 transition-colors"
                   />
                   <span className="text-[10px] text-slate-400">Used for WhatsApp onboarding notifications</span>
                 </div>
 
                 {/* Creative Discipline */}
                 <div className="space-y-2">
-                  <label className="text-xs font-semibold text-slate-200 block">
-                    Primary Creative Discipline <span className="text-amber-400">*</span>
+                  <label className="text-xs font-semibold text-slate-700 block">
+                    Primary Creative Discipline <span className="text-red-500">*</span>
                   </label>
                   <select
                     value={discipline}
                     onChange={(e) => setDiscipline(e.target.value as CreativeDiscipline)}
-                    className="w-full bg-[#141e30] border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-amber-500 transition-colors"
+                    className="w-full bg-white border border-slate-300 rounded-xl px-4 py-3 text-sm text-slate-900 focus:outline-none focus:border-slate-900 focus:ring-1 focus:ring-slate-900 transition-colors"
                   >
                     {DISCIPLINES.map((d) => (
                       <option key={d} value={d}>
@@ -458,13 +456,13 @@ export const MembershipPage: React.FC = () => {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 {/* Years of Experience */}
                 <div className="space-y-2">
-                  <label className="text-xs font-semibold text-slate-200 block">
+                  <label className="text-xs font-semibold text-slate-700 block">
                     Industry Experience Level
                   </label>
                   <select
                     value={experienceYears}
                     onChange={(e) => setExperienceYears(e.target.value)}
-                    className="w-full bg-[#141e30] border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-amber-500 transition-colors"
+                    className="w-full bg-white border border-slate-300 rounded-xl px-4 py-3 text-sm text-slate-900 focus:outline-none focus:border-slate-900 focus:ring-1 focus:ring-slate-900 transition-colors"
                   >
                     <option value="1-2 years">1 - 2 years (Emerging Talent)</option>
                     <option value="3-5 years">3 - 5 years (Established Practitioner)</option>
@@ -475,7 +473,7 @@ export const MembershipPage: React.FC = () => {
 
                 {/* State of Residence */}
                 <div className="space-y-2">
-                  <label className="text-xs font-semibold text-slate-200 block">
+                  <label className="text-xs font-semibold text-slate-700 block">
                     State of Primary Residence / Chapter
                   </label>
                   <input
@@ -483,7 +481,7 @@ export const MembershipPage: React.FC = () => {
                     value={stateOfResidence}
                     onChange={(e) => setStateOfResidence(e.target.value)}
                     placeholder="e.g. Lagos, Kwara, Abuja, Enugu"
-                    className="w-full bg-[#141e30] border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-400 focus:outline-none focus:border-amber-500 transition-colors"
+                    className="w-full bg-white border border-slate-300 rounded-xl px-4 py-3 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-slate-900 focus:ring-1 focus:ring-slate-900 transition-colors"
                   />
                 </div>
               </div>
@@ -491,7 +489,7 @@ export const MembershipPage: React.FC = () => {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 {/* Portfolio / Showreel Link */}
                 <div className="space-y-2">
-                  <label className="text-xs font-semibold text-slate-200 block">
+                  <label className="text-xs font-semibold text-slate-700 block">
                     Portfolio, Instagram or Showreel Link (Optional)
                   </label>
                   <input
@@ -499,13 +497,13 @@ export const MembershipPage: React.FC = () => {
                     value={portfolioUrl}
                     onChange={(e) => setPortfolioUrl(e.target.value)}
                     placeholder="https://instagram.com/yourhandle or Vimeo/YouTube"
-                    className="w-full bg-[#141e30] border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-400 focus:outline-none focus:border-amber-500 transition-colors"
+                    className="w-full bg-white border border-slate-300 rounded-xl px-4 py-3 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-slate-900 focus:ring-1 focus:ring-slate-900 transition-colors"
                   />
                 </div>
 
                 {/* IMDb Profile Link */}
                 <div className="space-y-2">
-                  <label className="text-xs font-semibold text-slate-200 block">
+                  <label className="text-xs font-semibold text-slate-700 block">
                     IMDb Profile Link (If available)
                   </label>
                   <input
@@ -513,15 +511,15 @@ export const MembershipPage: React.FC = () => {
                     value={imdbUrl}
                     onChange={(e) => setImdbUrl(e.target.value)}
                     placeholder="https://www.imdb.com/name/..."
-                    className="w-full bg-[#141e30] border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-400 focus:outline-none focus:border-amber-500 transition-colors"
+                    className="w-full bg-white border border-slate-300 rounded-xl px-4 py-3 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-slate-900 focus:ring-1 focus:ring-slate-900 transition-colors"
                   />
                 </div>
               </div>
 
               {/* Statement of Purpose / Bio */}
               <div className="space-y-2">
-                <label className="text-xs font-semibold text-slate-200 block">
-                  Statement of Purpose & Career Summary <span className="text-amber-400">*</span>
+                <label className="text-xs font-semibold text-slate-700 block">
+                  Statement of Purpose & Career Summary <span className="text-red-500">*</span>
                 </label>
                 <textarea
                   rows={4}
@@ -529,54 +527,54 @@ export const MembershipPage: React.FC = () => {
                   value={statementOfPurpose}
                   onChange={(e) => setStatementOfPurpose(e.target.value)}
                   placeholder="Share a brief summary of your creative background, notable screen credits, and what you hope to achieve through NCMF membership..."
-                  className="w-full bg-[#141e30] border border-white/10 rounded-xl p-4 text-sm text-white placeholder-slate-400 focus:outline-none focus:border-amber-500 transition-colors resize-none leading-relaxed"
+                  className="w-full bg-white border border-slate-300 rounded-xl p-4 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-slate-900 focus:ring-1 focus:ring-slate-900 transition-colors resize-none leading-relaxed"
                 />
               </div>
 
-              {/* Directory Opt-In & Privacy Choice (PRD requirement) */}
-              <div className="p-4 rounded-2xl bg-white/[0.03] border border-white/10 space-y-3">
+              {/* Directory Opt-In & Privacy Choice */}
+              <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-3">
                 <label className="flex items-start gap-3 cursor-pointer">
                   <input
                     type="checkbox"
                     checked={directoryOptIn}
                     onChange={(e) => setDirectoryOptIn(e.target.checked)}
-                    className="mt-1 w-4 h-4 rounded text-amber-500 bg-[#141e30] border-white/20 focus:ring-amber-500"
+                    className="mt-1 w-4 h-4 rounded text-slate-900 bg-white border-slate-300 focus:ring-slate-900"
                   />
                   <div className="text-xs">
-                    <span className="font-bold text-white block">
+                    <span className="font-bold text-slate-900 block">
                       Opt-In to Public Member Directory (Recommended)
                     </span>
-                    <span className="text-slate-400">
+                    <span className="text-slate-500">
                       If approved, display your professional name, discipline, and portfolio link in our public member directory for casting calls and collaborations. You can withdraw permission at any time.
                     </span>
                   </div>
                 </label>
 
-                <label className="flex items-start gap-3 cursor-pointer pt-2 border-t border-white/5">
+                <label className="flex items-start gap-3 cursor-pointer pt-2 border-t border-slate-200">
                   <input
                     type="checkbox"
                     required
                     checked={agreeToRules}
                     onChange={(e) => setAgreeToRules(e.target.checked)}
-                    className="mt-1 w-4 h-4 rounded text-amber-500 bg-[#141e30] border-white/20 focus:ring-amber-500"
+                    className="mt-1 w-4 h-4 rounded text-slate-900 bg-white border-slate-300 focus:ring-slate-900"
                   />
                   <div className="text-xs">
-                    <span className="font-bold text-white block">
-                      Agreement to NCMF Constitution & Professional Ethics <span className="text-amber-400">*</span>
+                    <span className="font-bold text-slate-900 block">
+                      Agreement to NCMF Constitution & Professional Ethics <span className="text-red-500">*</span>
                     </span>
-                    <span className="text-slate-400">
+                    <span className="text-slate-500">
                       I certify that all details provided are true and accurate. I agree to uphold the core values of professionalism, accountability, and collaboration in all guild and industry activities.
                     </span>
                   </div>
                 </label>
               </div>
 
-              {/* Submit Button */}
+              {/* Submit Button: Solid Crisp Black */}
               <div className="pt-2">
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full py-4 rounded-2xl font-black text-sm tracking-wide uppercase text-black bg-gradient-to-r from-amber-300 via-amber-400 to-amber-500 hover:from-amber-400 hover:to-amber-600 transition-all shadow-glow-gold flex items-center justify-center gap-2 disabled:opacity-50"
+                  className="w-full py-4 rounded-full font-bold text-sm tracking-wide uppercase text-white bg-slate-900 hover:bg-black transition-all shadow-sm flex items-center justify-center gap-2 disabled:opacity-50"
                 >
                   {isSubmitting ? (
                     <span>Validating & Submitting Application...</span>
@@ -587,7 +585,7 @@ export const MembershipPage: React.FC = () => {
                     </>
                   )}
                 </button>
-                <p className="text-center text-[11px] text-slate-500 mt-2">
+                <p className="text-center text-[11px] text-slate-400 mt-2">
                   🔒 Automated duplicate detection active. Your submission is protected against double-clicks.
                 </p>
               </div>
