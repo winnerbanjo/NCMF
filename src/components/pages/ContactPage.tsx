@@ -169,7 +169,7 @@ export const ContactPage: React.FC = () => {
                   </div>
                   <div>
                     <h4 className="font-bold text-sm text-slate-900">Official Instagram Channel</h4>
-                    <p className="text-[11px] text-slate-500">Client Priority Social Platform</p>
+                    <p className="text-[11px] text-slate-500">Follow NCMF on Instagram</p>
                   </div>
                 </div>
                 <a
@@ -182,9 +182,8 @@ export const ContactPage: React.FC = () => {
                 </a>
               </div>
 
-              {/* Editorial distinction note from PRD Section 4 & 6 */}
-              <p className="text-[11px] text-slate-500 italic leading-relaxed">
-                * Note: The official NCMF organization accounts are maintained independently from the personal accounts of National President Ijeoma Richards (@ijeomarichards1).
+              <p className="text-[11px] text-slate-500 leading-relaxed">
+                * Note: Official NCMF announcements are published via @nollywoodcreativemindsforum, distinct from the personal pages of forum executives.
               </p>
             </div>
 

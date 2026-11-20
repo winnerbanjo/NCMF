@@ -20,9 +20,9 @@ export const Navbar: React.FC = () => {
     { id: 'about', label: 'About' },
     { id: 'leadership', label: 'Leadership' },
     { id: 'membership', label: 'Membership' },
-    { id: 'programmes', label: 'Programmes & Events' },
-    { id: 'projects', label: 'Projects & Gallery' },
-    { id: 'directory', label: 'Member Directory' },
+    { id: 'programmes', label: 'Events' },
+    { id: 'projects', label: 'Projects' },
+    { id: 'directory', label: 'Directory' },
     { id: 'contact', label: 'Contact' },
   ];
 
@@ -45,7 +45,7 @@ export const Navbar: React.FC = () => {
             <span className="hidden sm:inline text-slate-300">|</span>
             <span className="hidden sm:inline-flex items-center gap-1 text-slate-600">
               <ShieldCheck className="w-3.5 h-3.5 text-slate-700" />
-              CAC Registered · Est. 2015
+              Professional Association · Est. 2015
             </span>
             <span className="hidden md:inline text-slate-300">|</span>
             <span className="hidden md:inline italic text-slate-600">

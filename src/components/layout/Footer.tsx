@@ -51,17 +51,17 @@ export const Footer: React.FC = () => {
             </p>
 
             <p className="text-sm text-slate-600 leading-relaxed">
-              Established in 2015, the Nollywood Creative Minds Forum (NCMF) is a premier professional association of Nigerian film practitioners dedicated to promoting capacity building, ethical standards, collaborative productions, and comprehensive industry welfare.
+              A professional association of Nigerian film practitioners, established in 2015. Dedicated to capacity building, ethical standards, collaborative productions, and comprehensive industry welfare.
             </p>
 
             <div className="flex flex-wrap items-center gap-2 pt-2">
               <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-semibold bg-white text-slate-800 border border-slate-200 shadow-2xs">
                 <ShieldCheck className="w-3.5 h-3.5 text-slate-700" />
-                CAC Registered (RC: 2015)
+                Established in 2015
               </span>
               <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-semibold bg-emerald-50 text-emerald-800 border border-emerald-200">
                 <Film className="w-3.5 h-3.5" />
-                10+ Years in Nollywood
+                Professional Association
               </span>
             </div>
           </div>
@@ -80,37 +80,37 @@ export const Footer: React.FC = () => {
               </li>
               <li>
                 <button onClick={() => handleNav('about')} className="hover:text-slate-950 transition-colors flex items-center gap-1.5">
-                  <ChevronRight className="w-3 h-3 text-slate-400" /> About the Forum
+                  <ChevronRight className="w-3 h-3 text-slate-400" /> About
                 </button>
               </li>
               <li>
                 <button onClick={() => handleNav('leadership')} className="hover:text-slate-950 transition-colors flex items-center gap-1.5">
-                  <ChevronRight className="w-3 h-3 text-slate-400" /> Leadership & Board
+                  <ChevronRight className="w-3 h-3 text-slate-400" /> Leadership
                 </button>
               </li>
               <li>
                 <button onClick={() => handleNav('membership')} className="hover:text-slate-950 transition-colors flex items-center gap-1.5">
-                  <ChevronRight className="w-3 h-3 text-slate-400" /> Membership & Fees
+                  <ChevronRight className="w-3 h-3 text-slate-400" /> Membership
                 </button>
               </li>
               <li>
                 <button onClick={() => handleNav('programmes')} className="hover:text-slate-950 transition-colors flex items-center gap-1.5">
-                  <ChevronRight className="w-3 h-3 text-slate-400" /> Programmes & Events
+                  <ChevronRight className="w-3 h-3 text-slate-400" /> Events
                 </button>
               </li>
               <li>
                 <button onClick={() => handleNav('projects')} className="hover:text-slate-950 transition-colors flex items-center gap-1.5">
-                  <ChevronRight className="w-3 h-3 text-slate-400" /> Projects & Gallery
+                  <ChevronRight className="w-3 h-3 text-slate-400" /> Projects
                 </button>
               </li>
               <li>
                 <button onClick={() => handleNav('directory')} className="hover:text-slate-950 transition-colors flex items-center gap-1.5">
-                  <ChevronRight className="w-3 h-3 text-slate-400" /> Member Directory
+                  <ChevronRight className="w-3 h-3 text-slate-400" /> Directory
                 </button>
               </li>
               <li>
                 <button onClick={() => handleNav('contact')} className="hover:text-slate-950 transition-colors flex items-center gap-1.5">
-                  <ChevronRight className="w-3 h-3 text-slate-400" /> Official Contact
+                  <ChevronRight className="w-3 h-3 text-slate-400" /> Contact
                 </button>
               </li>
             </ul>
@@ -184,7 +184,7 @@ export const Footer: React.FC = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white text-slate-800 border border-slate-200 hover:bg-slate-100 transition-all text-xs font-semibold shadow-2xs"
-                  title="Official Instagram (Client Priority Social Platform)"
+                  title="Follow NCMF on Instagram"
                 >
                   <InstagramIcon className="w-4 h-4" />
                   Instagram
@@ -200,7 +200,7 @@ export const Footer: React.FC = () => {
             © {new Date().getFullYear()} Nollywood Creative Minds Forum (NCMF). All rights reserved.
           </div>
           <div className="flex items-center gap-4">
-            <span className="text-slate-400">CAC Registered RC: 2015</span>
+            <span className="text-slate-400">A professional association of Nigerian film practitioners, established in 2015</span>
             <span className="text-slate-300">•</span>
             <button onClick={() => handleNav('membership')} className="hover:text-slate-900">
               Apply Online

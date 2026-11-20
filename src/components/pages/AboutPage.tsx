@@ -24,7 +24,7 @@ export const AboutPage: React.FC = () => {
       <section className="relative pt-12 pb-12 text-center max-w-4xl mx-auto px-4 sm:px-6">
         <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-slate-800 text-xs font-semibold mb-6">
           <ShieldCheck className="w-4 h-4 text-slate-700" />
-          <span>About the Forum · Est. 2015 · CAC Registered</span>
+          <span>About the Forum · Established in 2015</span>
         </div>
 
         <h1 className="font-display font-extrabold text-4xl sm:text-5xl lg:text-6xl text-slate-950 tracking-tight leading-tight mb-6">
@@ -32,7 +32,7 @@ export const AboutPage: React.FC = () => {
         </h1>
 
         <p className="text-base sm:text-lg text-slate-600 leading-relaxed font-normal">
-          Founded in 2015, the Nollywood Creative Minds Forum (NCMF) is a registered professional association committed to the continuous elevation, ethical standards, and collective prosperity of Nigerian film practitioners.
+          A professional association of Nigerian film practitioners, established in 2015. Dedicated to capacity building, ethical standards, collaborative productions, and comprehensive industry welfare.
         </p>
       </section>
 
@@ -112,7 +112,7 @@ export const AboutPage: React.FC = () => {
               The Nollywood Creative Minds Forum was conceived by forward-thinking practitioners led by Ijeoma Richards and founding colleagues who recognized that while Nollywood possessed limitless raw storytelling power, filmmakers lacked cohesive institutional support for career longevity, on-set safety protocols, legal protection, and collaborative finance.
             </p>
             <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-              Formally registered under the Corporate Affairs Commission (CAC) in 2015, the forum has expanded from a dedicated think-tank in Lagos to a respected national body with chapters spanning Kwara State and beyond.
+              Established in 2015 as a professional association of Nigerian film practitioners, the forum has expanded from a dedicated think-tank in Lagos to a respected national body with chapters spanning Kwara State and beyond.
             </p>
           </div>
 
@@ -122,9 +122,9 @@ export const AboutPage: React.FC = () => {
                 <Building2 className="w-5 h-5" />
               </div>
               <div>
-                <h4 className="font-bold text-sm text-slate-900">Corporate Affairs Commission</h4>
+                <h4 className="font-bold text-sm text-slate-900">Professional Association</h4>
                 <p className="text-xs text-slate-500 mt-1">
-                  Legally incorporated entity adhering to statutory nonprofit governance and transparency.
+                  A professional association of Nigerian film practitioners, established in 2015.
                 </p>
               </div>
             </div>

@@ -20,7 +20,7 @@ export const MemberDirectoryPage: React.FC = () => {
   const [inquiryText, setInquiryText] = useState('');
   const [senderEmail, setSenderEmail] = useState('');
 
-  // Filter only opted-in, approved profiles as mandated by PRD Section 4
+  // Filter only opted-in, approved profiles as mandated by privacy policy
   const publicMembers = members.filter(m => m.directoryOptIn);
 
   const filteredMembers = publicMembers.filter(m => {

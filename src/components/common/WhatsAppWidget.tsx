@@ -33,12 +33,12 @@ export const WhatsAppWidget: React.FC = () => {
   const quickQuestions = [
     {
       label: '📝 How do I apply for Membership?',
-      answer: 'Membership is open to established Nollywood and entertainment practitioners. The registration fee is ₦20,000. You can submit your application directly on our Membership page with instant duplicate protection!',
+      answer: 'Membership is open to practicing Nigerian film practitioners. The approved registration fee is ₦20,000, payable after your application is vetted and approved. You can submit your application directly on our Membership page!',
       targetPage: 'membership' as const
     },
     {
       label: '🏆 When is the next Annual Seminar?',
-      answer: 'Our flagship 2026 "In Pursuit of Better" National Summit & Merit Awards will be hosted at Four Points by Sheraton, Victoria Island, Lagos. Registration is currently open!',
+      answer: 'Our landmark "In Pursuit of Better" gathering brings together filmmakers, producers, and creative heads. Dates and venue for the upcoming national edition will be announced by the Secretariat shortly!',
       targetPage: 'programmes' as const
     },
     {
@@ -72,9 +72,9 @@ export const WhatsAppWidget: React.FC = () => {
       
       const lower = text.toLowerCase();
       if (lower.includes('member') || lower.includes('apply') || lower.includes('fee') || lower.includes('cost')) {
-        reply = 'Membership registration is ₦20,000 for verified entertainment practitioners. You can submit your application right now through our online portal, and the review committee will evaluate your submission.';
+        reply = 'The approved registration fee is ₦20,000, payable only after your application has been vetted and provisionally approved by the membership committee.';
       } else if (lower.includes('event') || lower.includes('seminar') || lower.includes('sheraton')) {
-        reply = 'The flagship "In Pursuit of Better" gathering brings together filmmakers, producers, and financiers annually at Four Points by Sheraton, Lagos.';
+        reply = 'Our landmark "In Pursuit of Better" gathering brings together filmmakers, producers, and financiers in Lagos. Past editions include our documented gathering at Four Points by Sheraton.';
       } else if (lower.includes('president') || lower.includes('ijeoma') || lower.includes('leader')) {
         reply = 'NCMF is led by Co-Founder & National President Ijeoma Richards alongside Vice Presidents Bukola "Bukky" Thomas and Kayode Freeman, Head of Media Tolulope Odebunmi, and Secretary Stella-Maris Nnaji.';
       }

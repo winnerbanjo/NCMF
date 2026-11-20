@@ -37,7 +37,7 @@ export const ProgrammesEventsPage: React.FC = () => {
         </h1>
 
         <p className="text-base sm:text-lg text-slate-600 leading-relaxed font-normal">
-          From our flagship annual <em>In Pursuit of Better</em> convention at Four Points by Sheraton to hands-on directing clinics and film screenings, explore how NCMF powers filmmaker growth.
+          From our landmark <em>In Pursuit of Better</em> gathering at Four Points by Sheraton to hands-on directing masterclasses and film screenings, explore how NCMF powers filmmaker growth.
         </p>
       </section>
 
@@ -175,7 +175,7 @@ export const ProgrammesEventsPage: React.FC = () => {
                     )}
                   </div>
 
-                  {/* Action / Registration Buttons as strictly defined in PRD Section 4 */}
+                  {/* Action / Registration Buttons */}
                   <div className="pt-6 border-t border-slate-100 flex flex-wrap items-center justify-between gap-4">
                     {evt.isUpcoming ? (
                       evt.registrationUrl ? (
@@ -189,11 +189,11 @@ export const ProgrammesEventsPage: React.FC = () => {
                         </a>
                       ) : (
                         <span className="text-xs text-slate-500 italic bg-slate-50 px-4 py-2 rounded-full border border-slate-200">
-                          Registration link pending organiser release
+                          Date & registration link pending organiser release
                         </span>
                       )
                     ) : (
-                      <span className="text-xs text-slate-500 flex items-center gap-1">
+                      <span className="text-xs text-slate-500 flex items-center gap-1 font-medium">
                         <Award className="w-3.5 h-3.5 text-slate-600" /> Completed Programme
                       </span>
                     )}

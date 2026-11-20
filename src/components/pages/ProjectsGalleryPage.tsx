@@ -208,12 +208,12 @@ export const ProjectsGalleryPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Archival Publishing Protocol Notice */}
+      {/* Archival Media Notice */}
       <section className="max-w-4xl mx-auto px-4">
         <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200 text-xs text-slate-600 space-y-1">
-          <span className="font-bold text-slate-900">Archival & Publishing Integrity:</span>
+          <span className="font-bold text-slate-900">Official Media Archives:</span>
           <p className="leading-relaxed text-slate-500">
-            All media displayed above preserves the official event captions, verified dates, and production metadata provided in the NCMF project pack. High-resolution images are archived and cleared under the governance of the Head of Media and National President.
+            Photographs from NCMF gatherings, seminars, and creative award sessions in Lagos. Detailed subject and event identifications will be updated as further archives are catalogued by the media secretariat.
           </p>
         </div>
       </section>

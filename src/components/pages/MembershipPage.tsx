@@ -12,7 +12,9 @@ import {
   AlertCircle,
   Copy,
   Check,
-  Film
+  Film,
+  X,
+  FileText
 } from 'lucide-react';
 
 const DISCIPLINES: CreativeDiscipline[] = [
@@ -44,6 +46,7 @@ export const MembershipPage: React.FC = () => {
   const [statementOfPurpose, setStatementOfPurpose] = useState('');
   const [directoryOptIn, setDirectoryOptIn] = useState(true);
   const [agreeToRules, setAgreeToRules] = useState(false);
+  const [showConstitutionModal, setShowConstitutionModal] = useState(false);
 
   // Submission UI state
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -244,9 +247,9 @@ export const MembershipPage: React.FC = () => {
               </p>
               
               <div className="p-3.5 rounded-xl bg-white border border-slate-200 text-[11px] text-slate-500 space-y-1">
-                <span className="font-semibold text-slate-900 block">Payment Roadmap Notice:</span>
+                <span className="font-semibold text-slate-900 block">What happens after you apply:</span>
                 <p>
-                  As outlined in the PRD, submission and review occur first. Upon vetting and committee approval, official NCMF bank account payment instructions are issued directly to your email and WhatsApp.
+                  No payment is due today. Submission and vetting occur first. Once your creative credentials are vetted and provisionally approved by the membership committee, official NCMF bank account payment instructions will be issued directly to your email and WhatsApp for the ₦20,000 fee.
                 </p>
               </div>
 
@@ -550,26 +553,36 @@ export const MembershipPage: React.FC = () => {
                   </div>
                 </label>
 
-                <label className="flex items-start gap-3 cursor-pointer pt-2 border-t border-slate-200">
-                  <input
-                    type="checkbox"
-                    required
-                    checked={agreeToRules}
-                    onChange={(e) => setAgreeToRules(e.target.checked)}
-                    className="mt-1 w-4 h-4 rounded text-slate-900 bg-white border-slate-300 focus:ring-slate-900"
-                  />
-                  <div className="text-xs">
-                    <span className="font-bold text-slate-900 block">
-                      Agreement to NCMF Constitution & Professional Ethics <span className="text-red-500">*</span>
-                    </span>
-                    <span className="text-slate-500">
-                      I certify that all details provided are true and accurate. I agree to uphold the core values of professionalism, accountability, and collaboration in all guild and industry activities.
-                    </span>
+                <div className="pt-2 border-t border-slate-200">
+                  <div className="flex items-start gap-3">
+                    <input
+                      type="checkbox"
+                      id="agreeToConstitution"
+                      required
+                      checked={agreeToRules}
+                      onChange={(e) => setAgreeToRules(e.target.checked)}
+                      className="mt-1 w-4 h-4 rounded text-slate-900 bg-white border-slate-300 focus:ring-slate-900 cursor-pointer"
+                    />
+                    <div className="text-xs">
+                      <label htmlFor="agreeToConstitution" className="font-bold text-slate-900 block cursor-pointer">
+                        Agreement to NCMF Constitution & Professional Ethics <span className="text-red-500">*</span>
+                      </label>
+                      <span className="text-slate-500">
+                        I certify that all details provided are true and accurate. I agree to uphold the core values of professionalism, mutual respect, and collaborative discipline as set out in the{' '}
+                        <button
+                          type="button"
+                          onClick={() => setShowConstitutionModal(true)}
+                          className="text-slate-900 font-bold underline hover:text-amber-800 transition-colors inline"
+                        >
+                          NCMF Constitution & Code of Ethics (Click to read)
+                        </button>.
+                      </span>
+                    </div>
                   </div>
-                </label>
+                </div>
               </div>
 
-              {/* Submit Button: Solid Crisp Black */}
+              {/* Submit Button */}
               <div className="pt-2">
                 <button
                   type="submit"
@@ -577,16 +590,16 @@ export const MembershipPage: React.FC = () => {
                   className="w-full py-4 rounded-full font-bold text-sm tracking-wide uppercase text-white bg-slate-900 hover:bg-black transition-all shadow-sm flex items-center justify-center gap-2 disabled:opacity-50"
                 >
                   {isSubmitting ? (
-                    <span>Validating & Submitting Application...</span>
+                    <span>Submitting Application...</span>
                   ) : (
                     <>
-                      <span>Submit Membership Application (₦20,000)</span>
+                      <span>Submit application</span>
                       <ArrowRight className="w-4 h-4" />
                     </>
                   )}
                 </button>
-                <p className="text-center text-[11px] text-slate-400 mt-2">
-                  🔒 Automated duplicate detection active. Your submission is protected against double-clicks.
+                <p className="text-center text-[11px] text-slate-500 mt-2">
+                  No payment is required upon submission. The approved ₦20,000 fee is payable only after vetting and provisional approval.
                 </p>
               </div>
             </form>
@@ -594,6 +607,99 @@ export const MembershipPage: React.FC = () => {
 
         </div>
       </section>
+
+      {/* Constitution & Code of Ethics Modal */}
+      {showConstitutionModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/60 backdrop-blur-sm animate-fadeIn">
+          <div className="relative w-full max-w-2xl bg-white rounded-3xl border border-slate-200 shadow-2xl overflow-hidden flex flex-col max-h-[85vh]">
+            
+            {/* Modal Header */}
+            <div className="p-6 border-b border-slate-100 flex items-center justify-between bg-slate-50">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-xl bg-slate-900 text-white flex items-center justify-center">
+                  <FileText className="w-5 h-5" />
+                </div>
+                <div>
+                  <h3 className="font-display font-bold text-lg text-slate-950">
+                    NCMF Constitution & Code of Ethics
+                  </h3>
+                  <p className="text-xs text-slate-500">
+                    Nollywood Creative Minds Forum · Established 2015
+                  </p>
+                </div>
+              </div>
+              <button
+                onClick={() => setShowConstitutionModal(false)}
+                className="p-2 rounded-full hover:bg-slate-200 text-slate-500 hover:text-slate-800 transition-colors"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            {/* Modal Content */}
+            <div className="p-6 sm:p-8 overflow-y-auto space-y-6 text-xs text-slate-600 leading-relaxed">
+              <div className="space-y-2">
+                <h4 className="font-bold text-sm text-slate-950 uppercase tracking-wider">
+                  Article I: Purpose & Forum Objectives
+                </h4>
+                <p>
+                  The Nollywood Creative Minds Forum (NCMF) was established in 2015 to organize, nurture, and optimize the potential of Nigerian screen practitioners across acting, directing, producing, screenwriting, cinematography, sound, and production management. The forum serves as a platform for capacity building, collaborative production, ethical set standards, and member welfare.
+                </p>
+              </div>
+
+              <div className="space-y-2">
+                <h4 className="font-bold text-sm text-slate-950 uppercase tracking-wider">
+                  Article II: Membership Governance & Vetting
+                </h4>
+                <p>
+                  1. Membership is open to practicing and aspiring Nigerian film professionals committed to ethical, disciplined, and collaborative creative practice.
+                </p>
+                <p>
+                  2. All submitted applications undergo credential verification by the Secretariat Vetting Committee before provisional induction.
+                </p>
+                <p>
+                  3. The approved registration fee of ₦20,000 is payable exclusively following formal vetting approval. No unofficial solicitations or third-party collection accounts are recognized.
+                </p>
+              </div>
+
+              <div className="space-y-2">
+                <h4 className="font-bold text-sm text-slate-950 uppercase tracking-wider">
+                  Article III: Professional Ethics & On-Set Conduct
+                </h4>
+                <p>
+                  Members shall observe mutual respect, punctuality, contractual integrity, and creative excellence in all guild and industry productions. Harassment, intellectual property infringement, and unethical set practices are strictly prohibited under forum bylaws.
+                </p>
+              </div>
+
+              <div className="space-y-2">
+                <h4 className="font-bold text-sm text-slate-950 uppercase tracking-wider">
+                  Article IV: Member Directory & Data Privacy
+                </h4>
+                <p>
+                  In accordance with forum privacy guidelines, inclusion in the public member directory is optional and subject to member consent. Personal residential addresses, direct phone numbers, and private banking data remain confidential within the Secretariat.
+                </p>
+              </div>
+            </div>
+
+            {/* Modal Footer */}
+            <div className="p-4 border-t border-slate-100 bg-slate-50 flex items-center justify-between">
+              <span className="text-[11px] text-slate-500">
+                Official signed document accessible to active members at the Secretariat.
+              </span>
+              <button
+                onClick={() => {
+                  setAgreeToRules(true);
+                  setShowConstitutionModal(false);
+                }}
+                className="px-5 py-2 rounded-full font-bold text-xs bg-slate-900 text-white hover:bg-black transition-colors"
+              >
+                Accept & Close
+              </button>
+            </div>
+
+          </div>
+        </div>
+      )}
     </div>
   );
 };

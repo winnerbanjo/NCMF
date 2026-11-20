@@ -18,18 +18,19 @@ import {
 export const HomePage: React.FC = () => {
   const { setCurrentPage, events, setSelectedLeader, leaders } = useApp();
 
-  const featuredEvent = events.find(e => e.isUpcoming) || events[0];
+  // Feature the documented 2024 seminar and merit awards
+  const featuredEvent = events.find(e => e.id === 'event-awards-2024') || events[0];
 
   return (
     <div className="space-y-24 sm:space-y-32 pb-24 bg-white text-slate-900">
       
-      {/* Hero Section: Crisp, Clean, Apple/Google Editorial Light Style */}
-      <section className="relative pt-16 pb-16 text-center max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Hero Section: Editorial Light Style with Immediate Filmmaker Photography */}
+      <section className="relative pt-12 pb-14 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         
-        {/* Official Accreditation Badge */}
+        {/* Official Description Badge */}
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-slate-800 text-xs sm:text-sm font-medium mb-8">
           <ShieldCheck className="w-4 h-4 text-slate-700" />
-          <span>The Official Professional Body for Nigerian Film Practitioners · Est. 2015</span>
+          <span>A professional association of Nigerian film practitioners, established in 2015</span>
         </div>
 
         {/* Hero Title: Solid, commanding deep black without artificial gradients */}
@@ -38,12 +39,12 @@ export const HomePage: React.FC = () => {
         </h1>
 
         {/* Subtitle */}
-        <p className="max-w-2xl mx-auto text-base sm:text-lg text-slate-600 leading-relaxed font-normal mb-10">
-          A registered professional association providing Nigerian actors, directors, screenwriters, cinematographers, and producers with a unified platform for mentorship, collaborative productions, capacity building, and industry welfare.
+        <p className="max-w-2xl mx-auto text-base sm:text-lg text-slate-600 leading-relaxed font-normal mb-8">
+          A professional association providing Nigerian actors, directors, screenwriters, cinematographers, and producers with a unified platform for mentorship, collaborative productions, capacity building, and industry welfare.
         </p>
 
-        {/* Primary Action Buttons: Solid Apple/Google Aesthetic */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-md mx-auto mb-16">
+        {/* Primary Action Buttons */}
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-md mx-auto mb-12">
           <button
             onClick={() => setCurrentPage('membership')}
             className="w-full sm:w-auto px-8 py-3.5 rounded-full font-semibold text-sm tracking-wide text-white bg-slate-900 hover:bg-black transition-all shadow-sm flex items-center justify-center gap-2 group"
@@ -56,46 +57,68 @@ export const HomePage: React.FC = () => {
             onClick={() => setCurrentPage('programmes')}
             className="w-full sm:w-auto px-7 py-3.5 rounded-full font-semibold text-sm text-slate-800 bg-white hover:bg-slate-50 border border-slate-300 transition-all shadow-sm flex items-center justify-center gap-2"
           >
-            Explore Programmes
+            Explore Events
           </button>
         </div>
 
-        {/* Key Metrics: Clean White/Slate Hairline Cards */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto pt-6 text-left border-t border-slate-200">
-          <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80">
-            <span className="font-display font-bold text-3xl sm:text-4xl text-slate-950 block mb-1">
+        {/* First Screen Visual: Showing the Real People Behind the Forum */}
+        <div className="rounded-3xl overflow-hidden border border-slate-200 bg-white shadow-sm text-left mb-10">
+          <div className="relative aspect-[16/9] sm:aspect-[21/9] w-full overflow-hidden bg-slate-100">
+            <img
+              src="/images/gallery/ncmf-merit-awards-gathering.jpg"
+              alt="NCMF filmmakers, executives, and honorees gathering at Four Points by Sheraton, Lagos"
+              className="w-full h-full object-cover object-[center_35%]"
+            />
+          </div>
+          <div className="p-4 sm:p-5 bg-slate-50/80 border-t border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs text-slate-600">
+            <div className="flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-emerald-500 shrink-0"></span>
+              <span className="font-semibold text-slate-900">
+                Filmmakers, executives, and guild members at the 2024 NCMF Merit Awards gathering
+              </span>
+            </div>
+            <span className="text-slate-500 font-medium">
+              Four Points by Sheraton, Victoria Island, Lagos
+            </span>
+          </div>
+        </div>
+
+        {/* Verified Facts & Accurate Tiles (Replacing misleading tiles) */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-4xl mx-auto text-left">
+          <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200">
+            <span className="font-display font-bold text-2xl sm:text-3xl text-slate-950 block mb-1">
               2015
             </span>
-            <span className="text-xs text-slate-500 font-semibold uppercase tracking-wider">
-              Year Founded (CAC Reg)
+            <span className="text-xs text-slate-600 font-semibold uppercase tracking-wider block">
+              Established in Lagos
             </span>
+            <p className="text-[11px] text-slate-500 mt-1">
+              Professional association founded by practicing Nigerian film practitioners.
+            </p>
           </div>
 
-          <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80">
-            <span className="font-display font-bold text-3xl sm:text-4xl text-slate-950 block mb-1">
+          <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200">
+            <span className="font-display font-bold text-2xl sm:text-3xl text-slate-950 block mb-1">
               ₦20,000
             </span>
-            <span className="text-xs text-slate-500 font-semibold uppercase tracking-wider">
-              Approved Entry Fee
+            <span className="text-xs text-slate-600 font-semibold uppercase tracking-wider block">
+              Approved Registration Fee
             </span>
+            <p className="text-[11px] text-slate-500 mt-1">
+              Payable exclusively upon credential vetting and committee approval.
+            </p>
           </div>
 
-          <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80">
-            <span className="font-display font-bold text-3xl sm:text-4xl text-slate-950 block mb-1">
-              100+
+          <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200">
+            <span className="font-display font-bold text-xl sm:text-2xl text-slate-950 block mb-1 truncate">
+              Four Points by Sheraton
             </span>
-            <span className="text-xs text-slate-500 font-semibold uppercase tracking-wider">
-              Film & TV Productions
+            <span className="text-xs text-slate-600 font-semibold uppercase tracking-wider block">
+              2024 Gathering Venue
             </span>
-          </div>
-
-          <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80">
-            <span className="font-display font-bold text-3xl sm:text-4xl text-slate-950 block mb-1">
-              Four Points
-            </span>
-            <span className="text-xs text-slate-500 font-semibold uppercase tracking-wider">
-              Sheraton Annual Host
-            </span>
+            <p className="text-[11px] text-slate-500 mt-1">
+              Venue for the documented 2024 seminar and creative merit awards.
+            </p>
           </div>
         </div>
       </section>
@@ -203,7 +226,7 @@ export const HomePage: React.FC = () => {
             <div className="lg:col-span-7 space-y-5">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold bg-slate-900 text-white uppercase tracking-wider">
                 <Award className="w-3.5 h-3.5" />
-                Featured Flagship Programme
+                Documented Landmark Gathering
               </div>
 
               <h2 className="font-display font-extrabold text-2xl sm:text-4xl text-slate-950 leading-tight">
@@ -246,26 +269,18 @@ export const HomePage: React.FC = () => {
               )}
 
               <div className="pt-4 flex flex-wrap items-center gap-4">
-                {featuredEvent.registrationUrl ? (
-                  <a
-                    href={featuredEvent.registrationUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="px-6 py-3 rounded-full font-semibold text-xs tracking-wider uppercase text-white bg-slate-900 hover:bg-black transition-all shadow-sm flex items-center gap-2"
-                  >
-                    Register for Event <ExternalLink className="w-3.5 h-3.5" />
-                  </a>
-                ) : (
-                  <span className="text-xs text-slate-500 italic bg-white px-4 py-2.5 rounded-full border border-slate-200">
-                    Registration opening soon · Check back for updates
-                  </span>
-                )}
+                <button
+                  onClick={() => setCurrentPage('projects')}
+                  className="px-6 py-3 rounded-full font-semibold text-xs tracking-wider uppercase text-white bg-slate-900 hover:bg-black transition-all shadow-sm flex items-center gap-2"
+                >
+                  View Event Photos & Gallery <ArrowRight className="w-3.5 h-3.5" />
+                </button>
 
                 <button
                   onClick={() => setCurrentPage('programmes')}
                   className="px-5 py-3 rounded-full font-semibold text-xs text-slate-700 hover:text-slate-950 bg-white hover:bg-slate-100 border border-slate-200 transition-colors"
                 >
-                  View Past & Upcoming Archive
+                  Explore All Events & Archive
                 </button>
               </div>
             </div>
@@ -379,12 +394,12 @@ export const HomePage: React.FC = () => {
                   Directed & Produced by Tolulope Odebunmi (Head of Media)
                 </p>
                 <p className="text-sm text-slate-600 leading-relaxed">
-                  Supported by British Council FilmLab Africa. Won <strong>Best Short Film</strong> at the Kaduna International Film Festival and official screening selection at the Lagos Fringe Festival and Bayelsa Film Festival.
+                  Supported by British Council FilmLab Africa. Won <strong>Best Short Film</strong> at the Kaduna International Film Festival, with official festival screenings at the Bayelsa International Film Festival and An Evening of Short Film Festival.
                 </p>
               </div>
 
               <div className="pt-4 border-t border-slate-100 flex items-center justify-between text-xs">
-                <span className="text-slate-500 font-medium">Accolade: Best Short Film Winner</span>
+                <span className="text-slate-500 font-medium">Accolade: Best Short Film (Kaduna Intl Film Fest)</span>
                 <button
                   onClick={() => setCurrentPage('projects')}
                   className="font-bold text-slate-900 hover:underline"

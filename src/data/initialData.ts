@@ -21,8 +21,9 @@ export const INITIAL_LEADERS: LeaderProfile[] = [
       instagram: 'https://instagram.com/ijeomarichards1',
       facebook: 'https://www.facebook.com/share/1KByzDcusy/'
     },
-    credits: ['Living in Oblivion', 'Perfect for Divorce (DStv Hit)', 'Husbands of Lagos', 'Rave', 'Aunty Maria', '#AdukeSeries', 'Uru Igba-Boi'],
+    credits: ['100+ Screen Appearances (IMDb Verified)', 'Living in Oblivion', 'Perfect for Divorce (DStv Hit)', 'Husbands of Lagos', 'Rave', 'Aunty Maria', '#AdukeSeries', 'Uru Igba-Boi'],
     awards: [
+      'Over 100 Film & Television Screen Appearances',
       'Actors Guild of Nigeria (AGN) Merit Award (2017)',
       'Best Supporting Actress — Nigeria Women Achievers Awards',
       'Entertainment Personality of the Year (2022)',
@@ -195,22 +196,22 @@ export const INITIAL_LEADERS: LeaderProfile[] = [
 export const INITIAL_EVENTS: EventItem[] = [
   {
     id: 'event-ipob-2026',
-    title: 'In Pursuit of Better 2026: The 11th Annual NCMF National Summit',
+    title: 'In Pursuit of Better: Next National Summit & Merit Awards',
     subtitle: 'Optimizing Potentials: Funding, Distribution & Global Standards in Nigerian Film',
-    date: 'December 12, 2026',
-    time: '9:00 AM – 5:00 PM WAT',
-    venue: 'Four Points by Sheraton, Victoria Island, Lagos',
+    date: 'Date & Venue to be Announced',
+    time: 'Full Day Programme',
+    venue: 'Lagos, Nigeria (Venue to be confirmed)',
     isUpcoming: true,
     category: 'Annual Seminar',
-    description: 'NCMF’s flagship annual gathering bringing together filmmakers, producers, financiers, entertainment lawyers, streaming executives, and guild leaders. Featuring high-level keynote addresses, masterclass breakout sessions, collaborative pitching, and the 2026 Merit Awards banquet.',
+    description: 'NCMF’s upcoming gathering bringing together filmmakers, producers, financiers, streaming executives, and guild leaders. Featuring keynote addresses, masterclass breakout sessions, collaborative pitching, and the Merit Awards ceremony.',
     highlights: [
-      'Keynote: Navigating Global Streaming Algorithms & Co-Production Treaties',
+      'Keynote: Navigating Global Streaming Algorithms & International Distribution',
       'Financing Roundtable: Bank of Industry & Private Equity for Nollywood',
       'Interactive Masterclasses on Cinematography, Sound & Script Packaging',
-      'The 2026 NCMF Creative Merit Awards & Gala Dinner'
+      'The NCMF Creative Merit Awards Ceremony'
     ],
-    registrationUrl: 'https://forms.gle/ncmf-summit-2026',
-    speakerOrHost: 'Ijeoma Richards & Tolulope Odebunmi',
+    registrationUrl: '',
+    speakerOrHost: 'Ijeoma Richards & Executive Committee',
     image: '/images/gallery/ncmf-merit-awards-gathering.jpg'
   },
   {
@@ -228,7 +229,7 @@ export const INITIAL_EVENTS: EventItem[] = [
       'Character psychology and method performance direction',
       'Building international film festival circuits for African shorts'
     ],
-    registrationUrl: '', // Intentionally empty to demonstrate PRD requirement: no registration button if link not yet provided
+    registrationUrl: '', // Registration link pending organiser confirmation
     speakerOrHost: 'Tolulope Odebunmi (Director, Bottled Up)',
     image: '/images/gallery/ncmf-awards-panel.jpg'
   },
@@ -294,7 +295,6 @@ export const INITIAL_PROJECTS: ProjectItem[] = [
     directorOrLead: 'Directed & Produced by Tolulope Odebunmi (JISYEM’S VIEW PRODUCTIONS)',
     accolades: [
       'Best Short Film — Kaduna International Film Festival',
-      'Official Selection — Lagos Fringe Festival',
       'Nominated for Screening — Bayelsa International Film Festival',
       'Special Recognition — An Evening of Short Film Festival'
     ],
@@ -334,18 +334,18 @@ export const INITIAL_PROJECTS: ProjectItem[] = [
 export const INITIAL_GALLERY: GalleryPhoto[] = [
   {
     id: 'gal-1',
-    title: '2024 Merit Awards Ceremony at Four Points by Sheraton',
-    caption: 'Executives, honorees, and guild members celebrate at the 2024 NCMF Annual Merit Awards held at Four Points by Sheraton, Lagos. Recognizing extraordinary service and dedication to Nigerian cinema.',
+    title: '2024 NCMF Merit Awards Gathering',
+    caption: 'Executives, honorees, and guild members at the 2024 NCMF Merit Awards gathering, Four Points by Sheraton, Victoria Island, Lagos.',
     category: 'Merit Awards',
     image: '/images/gallery/ncmf-merit-awards-gathering.jpg',
     eventDate: 'November 2024',
     location: 'Four Points by Sheraton, Victoria Island, Lagos',
-    credits: 'Photo: NCMF Media Unit / JISYEM’S View'
+    credits: 'Photo: NCMF Media Unit'
   },
   {
     id: 'gal-2',
-    title: 'Presidential Address & Honoree Presentation',
-    caption: 'NCMF National President Ijeoma Richards presenting industry accolades to distinguished screen practitioners and creative contributors during the flagship seminar.',
+    title: 'Presentation to President Ijeoma Richards',
+    caption: 'Presentation during the 2024 NCMF gathering at Four Points by Sheraton, Lagos.',
     category: 'Leadership',
     image: '/images/gallery/ncmf-presidential-presentation.jpg',
     eventDate: 'November 2024',
@@ -354,8 +354,8 @@ export const INITIAL_GALLERY: GalleryPhoto[] = [
   },
   {
     id: 'gal-3',
-    title: '“In Pursuit of Better” Panel of Industry Experts',
-    caption: 'Distinguished directors, producers, and creative heads engage in a deep-dive conversation on film finance, ethical set management, and uplifting Nollywood crew standards.',
+    title: 'Panel Discussion Session',
+    caption: 'Speakers and film practitioners on stage during the NCMF seminar session in Lagos.',
     category: 'Annual Seminar',
     image: '/images/gallery/ncmf-awards-panel.jpg',
     eventDate: 'November 2024',
@@ -364,12 +364,12 @@ export const INITIAL_GALLERY: GalleryPhoto[] = [
   },
   {
     id: 'gal-4',
-    title: 'NCMF Annual National Gathering Mainstage',
-    caption: 'Filmmakers, actors, and stakeholders gather under the banner of “Optimizing Potentials” to champion collaboration, mentorship, and creative sovereignty.',
+    title: 'Seminar Presentation Stage',
+    caption: 'The main stage during the NCMF seminar session in Lagos.',
     category: 'Annual Seminar',
     image: '/images/gallery/ncmf-seminar-stage.jpg',
     eventDate: 'November 2024',
-    location: 'Four Points by Sheraton, Lagos',
+    location: 'Lagos, Nigeria',
     credits: 'Photo: NCMF Media Unit'
   },
   {

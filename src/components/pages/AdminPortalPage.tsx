@@ -583,7 +583,7 @@ export const AdminPortalPage: React.FC = () => {
                   placeholder="https://forms.gle/... (Leave blank if not yet open)"
                   className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2.5 text-slate-900 focus:outline-none focus:border-slate-900"
                 />
-                <span className="text-[10px] text-slate-400">If blank, PRD rule hides booking button until link is supplied</span>
+                <span className="text-[10px] text-slate-400">If blank, registration button remains hidden until link is supplied</span>
               </div>
 
               <div className="space-y-1">
